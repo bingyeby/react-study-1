@@ -9,15 +9,15 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/dev-server',
-    './scripts/index'
+    './src/index'
   ],
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "static"),
     // string
     // 所有输出文件的目标路径
     // 必须是绝对路径（使用 Node.js 的 path 模块）
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/static/'
   },
   devServer: {
     proxy: { // proxy URLs to backend development server
@@ -45,7 +45,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loaders: 'babel-loader',
-        include: path.join(__dirname, 'scripts')
+        include: path.join(__dirname, 'src')
       },
       {
         test: /\.less$/,
