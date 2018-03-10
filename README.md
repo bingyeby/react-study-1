@@ -1,13 +1,11 @@
-npm i autoprefixer-loader babel-core babel-eslint babel-loader babel-plugin-react-transform babel-plugin-transform-runtime babel-
-preset-es2015 babel-preset-react babel-preset-stage-0 css-loader eslint eslint-plugin-babel eslint-plugin-react less less-loader react-transform-catch-errors re
-act-transform-hmr redbox-react style-loader webpack webpack-dev-server -D
+https://github.com/jrainlau/react-es6
+
 
 需要装webpack-cli
 
 
-npm i autoprefixer-loader babel-core babel-eslint babel-loader babel-plugin-react-transform babel-plugin-transform-runtime babel-
-preset-es2015 babel-preset-react babel-preset-stage-0 css-loader eslint eslint-plugin-babel eslint-plugin-react less less-loader react-transform-catch-errors re
-act-transform-hmr redbox-react style-loader webpack webpack-dev-server -D
+autoprefixer-loader -> postcss-loader
+
 
 需要装webpack-cli
 
