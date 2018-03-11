@@ -7,6 +7,13 @@ import Component5 from './demo5.js'
 import Component6 from './demo6.js'
 import Component7 from './demo7.js'
 
+
+import _ from 'lodash'
+import common from './common'
+
+console.log(_.keys)
+console.log(common)
+
 export default class Demo extends Component {
   render() {
     return (

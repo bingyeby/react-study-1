@@ -8,7 +8,7 @@ var path = require('path');
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
+    'webpack/hot/dev-server', // HotModuleReplacementPlugin
     './src/index'
   ],
   output: {
@@ -35,18 +35,16 @@ module.exports = {
     extensions: [".js", ".json", ".jsx", ".css"]
   },
   devtool: 'eval-source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin()
-  ],
   mode: "development",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         loaders: 'babel-loader',
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
+        exclude: /node_modules/
       },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.less$/,
         use: [
@@ -57,5 +55,13 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.NoErrorsPlugin(),
+    new webpack.DllReferencePlugin({// 建立映射关系，在编译的过程中通过json来把那些预编译的资源弄进来
+      context: __dirname,
+      manifest: require('./static/basic-manifest.json')//名单
+    }),
+  ],
 }

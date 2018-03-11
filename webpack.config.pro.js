@@ -15,19 +15,6 @@ module.exports = {
     extensions: [".js", ".json", ".jsx", ".css"]
   },
   devtool: 'source-map',
-  plugins: [
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
-  ],
   module: {
     rules: [
       {
@@ -45,5 +32,22 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
+    new webpack.DllReferencePlugin({// 建立映射关系，在编译的过程中通过json来把那些预编译的资源弄进来
+      context: __dirname,
+      manifest: require('./static/basic-manifest.json')//名单
+    })
+  ],
 };
