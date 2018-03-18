@@ -14,7 +14,7 @@ export default class Component7 extends Component {
     }
     render() {
         let word = this.state.words
-        require('../less/test.less')
+        require('./test.less')
         return (
             <div>
                 <h3 className='test-h1'>DEMO 7, state</h3>
