@@ -12,3 +12,4 @@ new WebpackDevServer(webpack(config), {
   }
   console.log('Listening at localhost:8080');
 });
+

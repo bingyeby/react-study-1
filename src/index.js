@@ -10,7 +10,5 @@ import common from './common';
 console.log(common);
 
 
-// import "./demo-b/Test2"
-import "./demo-comment/comment"
-
-
+// import "./demo-b/Test6"
+// import "./demo-comment/comment"
