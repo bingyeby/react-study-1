@@ -1,0 +1,65 @@
+.label {
+  border-left: 10px solid red;
+  padding: 0 0 0 15px;
+  display: flex;
+  justify-content: space-between;
+  span {
+  }
+  .label-title {
+
+  }
+  .opt-lager {
+    width: 20px;
+    cursor: pointer;
+  }
+}
+.link-outer {
+  outline: 1px solid red;
+  background: #0e1821;
+  color: white;
+  font-size: 0;
+  span {
+    span {
+      display: inline-block;
+      font-size: 12px;
+      position: relative;
+    }
+  }
+}
+.inner-linkName {
+  color: blue;
+  cursor: pointer;
+}
+.inner-link {
+  cursor: pointer;
+
+  &::after {
+    border: 1px solid red;
+    content: "111";
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    visibility: hidden;
+  }
+  &:hover::after {
+    visibility: visible;
+  }
+}
+.inner-label-title {
+  border: 2px solid #329995;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+.inner-label-msg {
+  border: 2px solid #329995;
+  border-radius: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: right;
+  padding: 0 10px 0 20px;
+  margin: 0 0 0 -20px;
+}
