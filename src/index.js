@@ -9,5 +9,5 @@ console.log(_.keys);
 import common from './common';
 console.log(common);
 
-import "./demo-b/Test6"
+import "./demo-b/Test5"
 // import "./demo-comment/comment"

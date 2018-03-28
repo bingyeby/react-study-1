@@ -5,7 +5,6 @@ let echarts = require('echarts');
 
 // 指定图表的配置项和数据
 import option from './config';
-import option2 from './config2';
 
 
 import Test6Style from './test6style.less'
@@ -17,9 +16,7 @@ let utilStyleHidden = {
 };
 
 let myChart;
-
-
-class Counter extends Component {
+export default class Counter extends Component {
     static propTypes = { // 限制类型
     };
     static defaultProps = { // 默认值
@@ -54,9 +51,9 @@ class Counter extends Component {
             this.setState({'students': this.state.students});
         }.bind(this));
 
-        let myChart2 = echarts.init(document.getElementById('d2'));
+        // let myChart2 = echarts.init(document.getElementById('d2'));
         // 使用刚指定的配置项和数据显示图表。
-        myChart2.setOption(option2);
+        // myChart2.setOption(option2);
     }
 
     showSomeThing(linkName) {
@@ -114,14 +111,11 @@ class Counter extends Component {
                         {width: '800px', height: '800px'} :
                         {width: '500px', height: '500px'}
                 }></div>
-                <div id='d2' style={{width: '200px', height: '200px', border: '1px solid red'}}></div>
             </div>
         </div>
-
-
     }
 }
 
-render(<Counter initialCount='1'/>, document.getElementById('root'));
+// render(<Counter initialCount='1'/>, document.getElementById('root'));
 
 

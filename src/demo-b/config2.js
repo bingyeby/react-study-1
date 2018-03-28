@@ -56,14 +56,17 @@ export default {
                 }
             ],
             tooltip: {
-                extraCssText: 'border-radius: 0;padding: 0;border: 1px solid white;background-color: #064b5d',
+                extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d',
                 formatter(params) {
                     console.log('params', params);
                     return `
                         <div style='padding:15px 10px'>
                             ${params.data.chartsShowTip}：${params.value}
                             <br/>
-                            占比：${params.percent}%
+                            <div style='display:flex;justify-content: space-between;'>
+                                <div>占比：</div>
+                                <div>${params.percent}%</div>
+                            </div>
                         </div>
                     `
                 },
