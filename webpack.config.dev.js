@@ -44,12 +44,27 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         exclude: /node_modules/
       },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.css$/, use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' }
+            // http://www.ruanyifeng.com/blog/2016/06/css_modules.html 
+            // https://www.npmjs.com/package/css-loader#modules
+            // https://blog.csdn.net/pcaxb/article/details/53896661
+            // https://blog.csdn.net/qq_18663357/article/details/54317686
+          }
+        ]
+      },
       {
         test: /\.less$/,
         use: [
           { loader: "style-loader" }, // creates style nodes from JS strings
-          { loader: "css-loader" },// translates CSS into CommonJS
+          {
+            loader: "css-loader",
+            options: { modules: true, localIdentName: '[path]+[name]+[local]' }
+          },// translates CSS into CommonJS
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: "less-loader" } // compiles Less to CSS 
         ]

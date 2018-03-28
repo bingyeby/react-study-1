@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
 let echarts = require('echarts');
 
@@ -30,7 +30,7 @@ export default class Counter extends Component {
              * linkType: A 资金 对外担保
              * linkType: B 股
              */
-            links: [{linkName: '1'}, {linkName: '2', linkType: 'A'}],
+            links: [{ linkName: '机构名称XXX' }, { linkName: '机构名称XXX', linkType: 'A' }],
             isLager: false,
         }
         this.lager = this.lager.bind(this);
@@ -47,13 +47,10 @@ export default class Counter extends Component {
             option.series[0].data.pop();
             myChart.setOption(option);
             console.log(this.state.students);
-            this.state.links.push({linkName: new Date().getTime(), linkType: 'B'});
-            this.setState({'students': this.state.students});
+            this.state.links.push({ linkName: new Date().getTime(), linkType: 'B' });
+            this.setState({ 'students': this.state.students });
         }.bind(this));
 
-        // let myChart2 = echarts.init(document.getElementById('d2'));
-        // 使用刚指定的配置项和数据显示图表。
-        // myChart2.setOption(option2);
     }
 
     showSomeThing(linkName) {
@@ -81,20 +78,19 @@ export default class Counter extends Component {
 
     render() {
         return <div>
-            <div className='label'>
-                <span className='label-title'>关联关系图谱</span>
-                <span className='opt-lager' onClick={this.lager}>{this.state.isLager ? '-' : '+'}</span>
+            <div className={Test6Style.label}>
+                <span className={Test6Style['label-title']}>关联关系图谱</span>
+                <span className={Test6Style['opt-lager']} onClick={this.lager}>{this.state.isLager ? '-' : '+'}</span>
             </div>
-            <div className='link-outer'>
-
-
+            <div className={Test6Style['link-outer']}>
+                {/* 指示关系 */}
                 {
                     this.state.links.map(function (link, i) {
                         return <span key={i}>
-                        <span className='inner-link' style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
-                        <span className='inner-linkName'
-                              onClick={this.showSomeThing.bind(this, link.linkName)}>{link.linkName}</span>
-                    </span>
+                            <span className={Test6Style['inner-link']} style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
+                            <span className={Test6Style['inner-linkName']}
+                                onClick={this.showSomeThing.bind(this, link.linkName)}>{link.linkName}</span>
+                        </span>
                     }.bind(this))
                 }
 
@@ -108,8 +104,8 @@ export default class Counter extends Component {
 
                 <div id='d1' style={
                     this.state.isLager ?
-                        {width: '800px', height: '800px'} :
-                        {width: '500px', height: '500px'}
+                        { width: '800px', height: '800px' } :
+                        { width: '500px', height: '500px' }
                 }></div>
             </div>
         </div>

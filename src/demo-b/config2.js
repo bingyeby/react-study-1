@@ -1,6 +1,6 @@
 export default {
     title: {
-        text: '董事会总席位:--',
+        text: '董事会总席位:9',
         x: 'center',
         textStyle: {
             color: 'white',
@@ -19,8 +19,8 @@ export default {
         {
             name: '访问来源',
             type: 'pie',
-            radius: '55%',
-            center: ['50%', '60%'],
+            center: ['50%', '55%'],
+            radius: [0, '80%'],
             data: [
                 {
                     value: 335,
@@ -61,11 +61,13 @@ export default {
                     console.log('params', params);
                     return `
                         <div style='padding:15px 10px'>
-                            ${params.data.chartsShowTip}：${params.value}
-                            <br/>
                             <div style='display:flex;justify-content: space-between;'>
-                                <div>占比：</div>
-                                <div>${params.percent}%</div>
+                                <div style='color:#84a4ad'>${params.data.chartsShowTip}：</div>
+                                <div style='color:white;'>${params.value}</div>
+                            </div>
+                            <div style='display:flex;justify-content: space-between;'>
+                                <div style='color:#84a4ad'>占比：</div>
+                                <div style='color:white;'>${params.percent}%</div>
                             </div>
                         </div>
                     `
