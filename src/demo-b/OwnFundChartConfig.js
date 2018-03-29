@@ -1,4 +1,6 @@
+let issueAmountArr = [110, 130, 50, 0];
 
+let xAxisDataArr = [2015, 2016, 2017, 2018];
 
 export default {
     grid: {
@@ -10,74 +12,45 @@ export default {
     // backgroundColor: '#011821',//背景色
     color: ['rgba(0,153,201,0.5)', 'rgba(7,89,117,0.5)', 'rgba(247,147,30,0.5)', 'rgba(9,177,73,0.255)'],
     tooltip: {
-        formatter (params) {
-            return fooltip(params, dateFormat(params[0].name, 'yyyy/MM/dd'), 300, 1)
+        trigger: 'item',
+        extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d',
+        formatter(params) {
+            console.log(params);
+            return `
+                <div style='padding:10px'>
+                    ${xAxisDataArr[params.dataIndex]}<br/>
+                    <div style='display:flex;justify-content: space-between;'>
+                        <div style='color:#84a4ad'>股东占款(千万)：</div>
+                        <div style='color:white;'>${params.data}</div>
+                    </div>
+                </div>
+                
+            `
         },
         backgroundColor: '#09455c',
-        trigger: 'axis',
-
-    },
-    legend: {
-        data: [
-            {
-                name: '实际新发债券金额',
-                icon: 'rect',
-                textStyle: {
-                    color: 'rgba(255,255,255,0.5)',
-                    fontSize: 12,
-                },
-            },
-            {
-                name: '实际偿还债券金额',
-                icon: 'rect',
-                textStyle: {
-                    color: 'rgba(255,255,255,0.5)',
-                    fontSize: 12,
-                },
-            },
-            {
-                name: '企业发债净融资',
-                icon: 'diamond',
-                textStyle: {
-                    color: 'rgba(255,255,255,0.5)',
-                    fontSize: 12,
-                },
-            },
-            {
-                name: '年末存量债券余额',
-                icon: 'diamond',
-                textStyle: {
-                    color: 'rgba(255,255,255,0.5)',
-                    fontSize: 12,
-                },
-            }],
-        right: 0,
-        top: 290,
-        itemHeight: 6,
-        itemWidth: 14,
     },
     xAxis: [{
         type: 'category',
-        data: dateArr,
-        // axisPointer: {
-        //     type: 'shadow'
-        // },
+        data: xAxisDataArr,
+        axisLabel: {
+            color: 'rgba(255,255,255,0.5)',
+
+            // formatter: '{value} ml'
+        },
         axisLine: {
             show: false,
             lineStyle: {
                 color: 'rgba(255,255,255,0.5)',
             },
         },
+        /*坐标刻度*/
+        axisTick: {
+            alignWithLabel: true
+        }
     }],
     yAxis: [{
         type: 'value',
-        name: '(亿元)',
-        axisLine: {
-            show: false,
-            lineStyle: {
-                color: 'rgba(255,255,255,0.5)',
-            },
-        },
+        name: '(千万)',
         axisTick: {
             onGap: false,
             lineStyle: {
@@ -86,7 +59,6 @@ export default {
         },
         axisLabel: {
             color: 'rgba(255,255,255,0.5)',
-            // formatter: '{value} ml'
         },
         splitLine: {
             lineStyle: {
@@ -99,37 +71,13 @@ export default {
         {
             name: '实际新发债券金额',
             type: 'bar',
-            data: issueAmountArr,
+            data: [110, 130, 50, 0],
             emphasis: {
                 itemStyle: {
                     color: '#075975',
                 },
             },
-            barWidth: 19,
-
-        },
-        {
-            name: '实际偿还债券金额',
-            type: 'bar',
-            data: payAmountArr,
-            emphasis: {
-                itemStyle: {
-                    color: '#0099c9',
-                },
-            },
-            barWidth: 19,
-        },
-        {
-            name: '企业发债净融资',
-            type: 'line',
-            symbol: 'circle',
-            data: netFinancingArr,
-        },
-        {
-            name: '年末存量债券余额',
-            type: 'line',
-            symbol: 'circle',
-            data: amountEndingArr,
-        },
+            barWidth: 20,
+        }
     ],
 }

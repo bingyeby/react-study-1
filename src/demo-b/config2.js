@@ -60,7 +60,7 @@ export default {
                 formatter(params) {
                     console.log('params', params);
                     return `
-                        <div style='padding:15px 10px'>
+                        <div style='padding: 10px'>
                             <div style='display:flex;justify-content: space-between;'>
                                 <div style='color:#84a4ad'>${params.data.chartsShowTip}：</div>
                                 <div style='color:white;'>${params.value}</div>

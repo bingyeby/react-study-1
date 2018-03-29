@@ -1,7 +1,7 @@
-.sooTableOuter {
+.tableOuter {
   color: white;
   font-size: 12px;
-  border: 1px solid red;
+  border: 1px solid #6ea7ff;
   white-space: nowrap;
   display: inline-block;
   table {
@@ -11,16 +11,15 @@
     height: 30px;
   }
   td {
-    border: 1px solid red;
+    border: 1px solid #a2683a;
   }
 
   /*表具体内容*/
-  & > .sooTableOuterContent {
+  & > .tableOuterContent {
     width: 581px;
     overflow: auto;
     overflow-y: hidden;
-    border: 1px solid red;
-    vertical-align: top;
+    border: 1px solid rgba(160, 162, 120, 0.69);
     &::-webkit-scrollbar-thumb {
       //display: none;
       background: #222e39;
@@ -38,8 +37,9 @@
     }
     & > div {
       display: inline-block;
+      vertical-align: top;
     }
-    & > .sooTableContentHeader {
+    & > .tableContentHeader {
       table {
         width: 154px;
         text-align: center;

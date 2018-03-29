@@ -10,16 +10,16 @@ export default class SituationOfOffice extends Component {
     }
 
     render() {
-        return (<div className={styles['sooTableOuter']}>
-            <div className={styles.sooTableOuterContent}>
-                <div className={styles.sooTableContentHeader}>
+        return (<div className={styles['tableOuter']}>
+            <div className={styles.tableOuterContent}>
+                <div className={styles.tableContentHeader}>
                     <table>
                         <tbody>
                         <tr>
-                            <td></td>
+                            <td rowSpan={2}></td>
                         </tr>
                         <tr>
-                            <td></td>
+                            <td style={{display: 'none'}}></td>
                         </tr>
                         <tr>
                             <td>公司名称</td>
