@@ -1,0 +1,61 @@
+.tableOuter {
+  color: white;
+  font-size: 12px;
+  table {
+    border-collapse: collapse;
+    tr {
+      td {
+        border: 1px solid #2c353d;
+        text-align: center;
+      }
+    }
+    td:first-child {
+      width: 96px;
+      text-align: center;
+    }
+    th {
+      width: 120px;
+      background: #17212a;
+      border: 1px solid #2c353d;
+      font-weight: normal;
+    }
+    tr > th:first-child {
+      width: 100px;
+    }
+  }
+
+  .statusUp {
+    color: red;
+    &:after {
+      content: "+";
+      display: inline-block;
+      border: 1px solid red;
+      width: 16px;
+      height: 16px;
+      padding: 0 0 0 10px;
+    }
+  }
+  .statusDown {
+    color: red;
+    &:after {
+      content: "-";
+      display: inline-block;
+      border: 1px solid red;
+      width: 16px;
+      height: 16px;
+      padding: 0 0 0 10px;
+    }
+  }
+  .statusNormal {
+    color: white;
+    &:after {
+      content: "";
+      display: inline-block;
+      border: 1px solid white;
+      width: 16px;
+      height: 16px;
+      padding: 0 0 0 10px;
+    }
+  }
+
+}
