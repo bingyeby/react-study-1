@@ -9,6 +9,7 @@ import SituationOfOffice from './SituationOfOffice';
 import GradeOfShareHolder from './GradeOfShareHolder';
 import OwnFund from './OwnFund';
 import SituationOfOffice2 from './SituationOfOffice2';
+import ScaleWithShareHoldingAndPledge from './ScaleWithShareHoldingAndPledge';
 
 
 class Counter extends Component {
@@ -20,6 +21,7 @@ class Counter extends Component {
             <GradeOfShareHolder></GradeOfShareHolder>
             <OwnFund></OwnFund>
             <SituationOfOffice2></SituationOfOffice2>
+            <ScaleWithShareHoldingAndPledge></ScaleWithShareHoldingAndPledge>
         </div>
     }
 }

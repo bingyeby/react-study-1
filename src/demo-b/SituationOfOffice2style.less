@@ -1,95 +1,94 @@
 @textTitle: fade(#ffffff, 50%);
 @textValue: fade(#ffffff, 100%);
 .tableOuter {
-    &>.tableOuterContent {
-        color: @textValue;
-        font-size: 12px;
-        border: 1px solid fade(#ffffff, 0.2);
-        white-space: nowrap;
-        display: inline-block;
-        width: 100%;
-        min-width: 601px; // overflow: auto;
-        // overflow-x: hidden;
-        border: 1px solid rgba(160, 162, 120, 0.69);
-        thead,
-        tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-        table tbody {
-            display: block;
-            height: 192px;
-            overflow-y: scroll;
-            position: relative;
-        }
-        table thead {
-            width: calc( 100% - 0px)
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            tr {
-                height: 30px;
-            }
-            tr:nth-of-type(2n+1) {
-                background: fade(#ffffff, 2%);
-            }
-            td,
-            th {
-                padding: 0 30px;
-                font-weight: normal;
-                text-align: left;
-            }
-            td {
-                border-left: 1px solid fade(#000000, 10%);
-            }
-            th {
-                border: 1px solid fade(#ffffff, 10%);
-                background: fade(#ffffff, 4%);
-                color: @textTitle
-            }
-        }
-
-        tbody::-webkit-scrollbar {
-            height: 5px;
-            display: none;
-        }
-        tbody::-webkit-scrollbar-thumb {
-            background: #222e39;
-            border-radius: 5px;
-            width: 5px;
-        }
-        tbody::-webkit-scrollbar-track {
-            background: rgba(255, 102, 213, 0);
-        }
-
-        &>div {
-            display: inline-block;
-            vertical-align: top;
-        }
-        table {
-            tr:first-child {
-                td {
-                    border-top: none;
-                }
-            }
-            tr:last-child {
-                td {
-                    border-bottom: none;
-                }
-            }
-        }
+  & > .tableOuterContent {
+    color: @textValue;
+    font-size: 12px;
+    border: 1px solid fade(#ffffff, 0.2);
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+    min-width: 601px; // overflow: auto;
+    // overflow-x: hidden;
+    border: 1px solid rgba(160, 162, 120, 0.69);
+    thead,
+    tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
     }
+    table tbody {
+      display: block;
+      height: 192px;
+      overflow-y: scroll;
+      position: relative;
+    }
+    table thead {
+      width: calc(100% - 0px)
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      tr {
+        height: 30px;
+      }
+      tr:nth-of-type(2n+1) {
+        background: fade(#ffffff, 2%);
+      }
+      td,
+      th {
+        padding: 0 30px;
+        font-weight: normal;
+        text-align: left;
+      }
+      td {
+        border-left: 1px solid fade(#000000, 10%);
+      }
+      th {
+        border: 1px solid fade(#ffffff, 10%);
+        background: fade(#ffffff, 4%);
+        color: @textTitle
+      }
+    }
+
+    tbody::-webkit-scrollbar {
+      height: 5px;
+      display: none;
+    }
+    tbody::-webkit-scrollbar-thumb {
+      background: #222e39;
+      border-radius: 5px;
+      width: 5px;
+    }
+    tbody::-webkit-scrollbar-track {
+      background: rgba(255, 102, 213, 0);
+    }
+
+    & > div {
+      display: inline-block;
+      vertical-align: top;
+    }
+    table {
+      tr:first-child {
+        td {
+          border-top: none;
+        }
+      }
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }
-
-
-.test{
-    width: 10px;
-    border-radius: 10px;
-    height: 100px;
-    position: absolute;
-    background: rgb(97, 95, 92);
-    top: 0px;
-    right: 0px;
+.scrollBar {
+  width: 10px;
+  border-radius: 10px;
+  height: 100px;
+  position: absolute;
+  background: rgb(97, 95, 92);
+  top: 0;
+  right: 0;
+  margin: 0 2px;
 }
