@@ -4,13 +4,12 @@
   & > .tableOuterContent {
     color: @textValue;
     font-size: 12px;
-    border: 1px solid fade(#ffffff, 0.2);
+    border: 1px solid fade(#ffffff, 20);
     white-space: nowrap;
     display: inline-block;
     width: 100%;
     min-width: 601px; // overflow: auto;
     // overflow-x: hidden;
-    border: 1px solid rgba(160, 162, 120, 0.69);
     thead,
     tr {
       display: table;
@@ -29,25 +28,33 @@
     table {
       border-collapse: collapse;
       width: 100%;
+      text-align: left;
       tr {
         height: 30px;
       }
-      tr:nth-of-type(2n+1) {
+      tr:nth-of-type(2n) {
         background: fade(#ffffff, 2%);
       }
       td,
       th {
         padding: 0 30px;
         font-weight: normal;
-        text-align: left;
       }
       td {
         border-left: 1px solid fade(#000000, 10%);
       }
       th {
-        border: 1px solid fade(#ffffff, 10%);
         background: fade(#ffffff, 4%);
         color: @textTitle
+      }
+    }
+    thead {
+      td, th {
+        border-bottom: 1px solid fade(#ffffff, 10);
+        border-right: 1px solid fade(#ffffff, 10);
+      }
+      td:last-child, th:last-child {
+        border-right: none;
       }
     }
 

@@ -20,17 +20,15 @@ export default class OwnFund extends Component {
     }
 
     render() {
-        return <div className={styles['seatMsg']}>
-            <div className={styles['seatMsgCanvasOuter']}>
+        return <div className={styles.outer}>
+            <div className='moduleTitle'>股东占股</div>
+            <div className={styles.canvasContainer}>
                 <div
                     id='ownFundChartId'
                     style={{
-                        width: '500px',
-                        height: '180px'
+                        width: '601px',
+                        height: '194px'
                     }}></div>
-            </div>
-            <div className={styles['']}>
-
             </div>
         </div>
     }

@@ -10,94 +10,96 @@ export default class GradeOfShareHolder extends Component {
     }
 
     render() {
-        return (<div className={styles['tableOuter']}>
-            <table>
-                <tbody>
-                <tr>
-                    <th></th>
-                    <th>评级</th>
-                    <th>评级展望</th>
-                    <th>评级机构</th>
-                    <th>评级时间</th>
-                </tr>
-                <tr>
-                    <th>外部评级</th>
-                    <td>
-                        <span className={styles.statusUp}>AAA</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>2018/3/29</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th>隐含评级</th>
-                    <td>
-                        <span className={styles.statusNormal}>AAA</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>2018/3/29</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th rowSpan={3}>国外评级</th>
-                    <td>
-                        <span className={styles.statusUp}>AAA</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>2018/3/29</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th style={{display:'none'}}></th>
-                    <td>
-                        <span className={styles.statusUp}>AAA</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>2018/3/29</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th style={{display:'none'}}></th>
-                    <td>
-                        <span className={styles.statusUp}>AAA</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>xxx</span>
-                    </td>
-                    <td>
-                        <span>2018/3/29</span>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
+        return (<div>
+            <div className='moduleTitle'>股东控股评级</div>
+            <div className={styles.tableOuter}>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th>评级</th>
+                        <th>评级展望</th>
+                        <th>评级机构</th>
+                        <th>评级时间</th>
+                    </tr>
+                    <tr>
+                        <th>外部评级</th>
+                        <td>
+                            <span className={styles.statusUp}>AAA</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>2018/3/29</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>隐含评级</th>
+                        <td>
+                            <span className={styles.statusNormal}>AAA</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>2018/3/29</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th rowSpan={3}>国外评级</th>
+                        <td>
+                            <span className={styles.statusUp}>AAA</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>2018/3/29</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style={{display: 'none'}}></th>
+                        <td>
+                            <span className={styles.statusUp}>AAA</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>2018/3/29</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style={{display: 'none'}}></th>
+                        <td>
+                            <span className={styles.statusUp}>AAA</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>xxx</span>
+                        </td>
+                        <td>
+                            <span>2018/3/29</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>);
     }
 }

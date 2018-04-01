@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
 let echarts = require('echarts');
 
 // 指定图表的配置项和数据
-import option from './config';
-
-
-import Test6Style from './test6style.less'
+import option from './IncidenceRelationChartConfig';
+import styles from './IncidenceRelationStyle.less'
 
 
 let utilStyleShow = {};
@@ -30,15 +28,13 @@ export default class Counter extends Component {
              * linkType: A 资金 对外担保
              * linkType: B 股
              */
-            links: [{ linkName: '机构名称XXX' }, { linkName: '机构名称XXX', linkType: 'A' }],
+            links: [{linkName: '机构名称XXX'}, {linkName: '机构名称XXX', linkType: 'A'}],
             isLager: false,
-        }
-        this.lager = this.lager.bind(this);
-
+        };
     }
 
     componentDidMount() {
-        myChart = echarts.init(document.getElementById('d1'));
+        myChart = echarts.init(document.getElementById('IncidenceRelationChart'));
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         myChart.on('click', function (e) {
@@ -47,13 +43,13 @@ export default class Counter extends Component {
             option.series[0].data.pop();
             myChart.setOption(option);
             console.log(this.state.students);
-            this.state.links.push({ linkName: new Date().getTime(), linkType: 'B' });
-            this.setState({ 'students': this.state.students });
+            this.state.links.push({linkName: new Date().getTime(), linkType: 'B'});
+            this.setState({'students': this.state.students});
         }.bind(this));
 
     }
 
-    showSomeThing(linkName) {
+    showLinkMsg(linkName) {
         console.log('linkName', linkName);
     }
 
@@ -64,8 +60,9 @@ export default class Counter extends Component {
 
     }
 
-    lager() {
-        console.log("最大化");
+    maximizeHandler = () => {
+        console.log('max');
+
         this.setState({
             isLager: true
         });
@@ -73,23 +70,37 @@ export default class Counter extends Component {
             width: '800px',
             height: '800px'
         });
+    }
 
+    minimizeHandler = () => {
+        console.log('min');
+        this.setState({
+            isLager: false
+        });
+        myChart.resize({
+            width: '400px',
+            height: '400px'
+        });
     }
 
     render() {
         return <div>
-            <div className={Test6Style.label}>
-                <span className={Test6Style['label-title']}>关联关系图谱</span>
-                <span className={Test6Style['opt-lager']} onClick={this.lager}>{this.state.isLager ? '-' : '+'}</span>
+            <div className='moduleTitle'>
+                关联关系图谱
+                <span className={styles.optMaxMin}
+                      onClick={this.state.isLager ? this.minimizeHandler : this.maximizeHandler}>
+                    {this.state.isLager ? '-' : '+'}
+                </span>
             </div>
-            <div className={Test6Style['link-outer']}>
+            <div className={styles['link-outer']}>
                 {/* 指示关系 */}
                 {
                     this.state.links.map(function (link, i) {
                         return <span key={i}>
-                            <span className={Test6Style['inner-link']} style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
-                            <span className={Test6Style['inner-linkName']}
-                                onClick={this.showSomeThing.bind(this, link.linkName)}>{link.linkName}</span>
+                            <span className={styles['inner-link']}
+                                  style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
+                            <span className={styles['inner-linkName']}
+                                  onClick={this.showLinkMsg.bind(this, link.linkName)}>{link.linkName}</span>
                         </span>
                     }.bind(this))
                 }
@@ -102,16 +113,12 @@ export default class Counter extends Component {
                     <span className='inner-default'>机构名称B</span>
                 </span>*/}
 
-                <div id='d1' style={
+                <div id='IncidenceRelationChart' className={styles.IncidenceRelationChart} style={
                     this.state.isLager ?
-                        { width: '800px', height: '800px' } :
-                        { width: '500px', height: '500px' }
+                        {width: '800px', height: '800px'} :
+                        {width: '500px', height: '500px'}
                 }></div>
             </div>
         </div>
     }
 }
-
-// render(<Counter initialCount='1'/>, document.getElementById('root'));
-
-

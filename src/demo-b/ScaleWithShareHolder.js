@@ -5,8 +5,8 @@ import {render} from 'react-dom';
 let echarts = require('echarts');
 
 
-import styles from './Share.less'
-import ScaleWithShareHolderChartConfig from './ScaleChartConfig';
+import styles from './Scale.less'
+import ScaleWithShareHolderChartConfig from './ScaleWithShareHolderChartConfig';
 
 export default class ScaleWithShareHolder extends Component {
 
@@ -20,17 +20,16 @@ export default class ScaleWithShareHolder extends Component {
     }
 
     render() {
-        return <div className={styles['seatMsg']}>
-            <div className={styles['seatMsgCanvasOuter']}>
+        return <div className={styles.outer}>
+            <div className='moduleTitle'>股东占比</div>
+            <div className={styles.canvasContainer}>
                 <div
                     id='ScaleWithShareHolderChartId'
                     style={{
-                        width: '500px',
-                        height: '180px'
+                        border: '1px solid red',
+                        width: '738px',
+                        height: '194px'
                     }}></div>
-            </div>
-            <div className={styles['']}>
-
             </div>
         </div>
     }

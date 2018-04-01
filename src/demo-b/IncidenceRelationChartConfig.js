@@ -36,7 +36,7 @@ export default {
             },
             edgeLabel: {
                 show: true,
-                position: "end",
+                position: 'end',
                 normal: {
                     show: true,
                     formatter(x) {
@@ -157,7 +157,7 @@ export default {
                 {
                     source: '本企业',
                     target: '资金',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#0099c9',
@@ -166,7 +166,7 @@ export default {
                 }, {
                     source: '本企业',
                     target: '业务',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#0099c9',
@@ -175,7 +175,7 @@ export default {
                 }, {
                     source: '本企业',
                     target: '人物',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#0099c9',
@@ -184,7 +184,7 @@ export default {
                 }, {
                     source: '资金',
                     target: '股东担保',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#3bb9b2',
@@ -193,7 +193,7 @@ export default {
                 }, {
                     source: '资金',
                     target: '关联交易',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#3bb9b2',
@@ -202,7 +202,7 @@ export default {
                 }, {
                     source: '股东担保',
                     target: '吴心怡',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#5b7fd8',
@@ -211,7 +211,7 @@ export default {
                 }, {
                     source: '股东担保',
                     target: '蔡成功',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#5b7fd8',
@@ -220,7 +220,7 @@ export default {
                 }, {
                     source: '股东担保',
                     target: '赵瑞龙',
-                    name: "",
+                    name: '',
                     lineStyle: {
                         normal: {
                             color: '#5b7fd8',

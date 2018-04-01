@@ -56,18 +56,45 @@ export default {
                 }
             ],
             tooltip: {
-                extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d',
+                extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d;font-family:"宋体"',
                 formatter(params) {
                     console.log('params', params);
                     return `
-                        <div style='padding: 10px'>
-                            <div style='display:flex;justify-content: space-between;'>
-                                <div style='color:#84a4ad'>${params.data.chartsShowTip}：</div>
-                                <div style='color:white;'>${params.value}</div>
+                        <style>
+                            .chart-tip-wrap{
+                                padding: 12px;
+                            }
+                            .chart-tip-head{
+                                color:#ffffff;
+                                font-size: 12px;
+                                line-height: 12px;
+                                padding-bottom: 10px;
+                            }
+                            .chart-tip-body{
+                                display:flex;
+                                justify-content: space-between;
+                                line-height:10px;
+                                font-size: 10px;
+                                padding-bottom: 8px;
+                            }
+                            .chart-tip-body:last-child{
+                                padding-bottom: 0;
+                            }
+                            .chart-tip-body-key{
+                                color:rgba(255,255,255,0.5); 
+                            }
+                            .chart-tip-body-value{
+                                color:#ffffff;
+                            }
+                        </style>
+                        <div class="chart-tip-wrap">
+                            <div class='chart-tip-body'>
+                                <div class="chart-tip-body-key">${params.data.chartsShowTip}：</div>
+                                <div class="chart-tip-body-value">${params.value}</div>
                             </div>
-                            <div style='display:flex;justify-content: space-between;'>
-                                <div style='color:#84a4ad'>占比：</div>
-                                <div style='color:white;'>${params.percent}%</div>
+                            <div class='chart-tip-body'>
+                                <div class="chart-tip-body-key">占比：</div>
+                                <div class="chart-tip-body-value">${params.percent}%</div>
                             </div>
                         </div>
                     `
