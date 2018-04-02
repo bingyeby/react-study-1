@@ -40,34 +40,43 @@
     .statusUp {
         color: red;
         &:after {
-            content: "+";
+            content: "";
             display: inline-block;
-            border: 1px solid red;
+            vertical-align: middle;
+            background-position: -119px -0px;
+            //background-image: ~ "url(../../../../../statusUp../assets/sprite.png)";
+            background-repeat: no-repeat;
+            margin-left: 10px;
             width: 16px;
             height: 16px;
             padding: 0 0 0 10px;
         }
     }
     .statusDown {
-        color: red;
+        color: #09be49;
         &:after {
-            content: "-";
-            display: inline-block;
-            border: 1px solid red;
-            width: 16px;
-            height: 16px;
-            padding: 0 0 0 10px;
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          background-position: -158px -0px;
+          //background-image: ~ "url(../../../../../../assets/sprite.png)";
+          background-repeat: no-repeat;
+          margin-left: 10px;
+          width: 16px;
+          height: 16px;
+          padding: 0 0 0 10px;
         }
     }
     .statusNormal {
         color: white;
         &:after {
-            content: "";
-            display: inline-block;
-            border: 1px solid white;
-            width: 16px;
-            height: 16px;
-            padding: 0 0 0 10px;
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 10px;
+          width: 16px;
+          height: 16px;
+          padding: 0 0 0 10px;
         }
     }
 }

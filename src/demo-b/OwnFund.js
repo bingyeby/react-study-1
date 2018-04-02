@@ -22,12 +22,12 @@ class OwnFund extends Component {
 
     render() {
         return <div className={styles.outer}>
-            <div className='moduleTitle'>股东占股</div>
+            <div className='moduleTitle'>股东占款</div>
             <div className={styles.canvasContainer}>
                 <div
                     id='ownFundChartId'
                     style={{
-                        width: '601px',
+                        width: '100%',// 601px
                         height: '194px'
                     }}></div>
             </div>

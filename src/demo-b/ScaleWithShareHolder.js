@@ -26,8 +26,8 @@ class ScaleWithShareHolder extends Component {
                 <div
                     id='ScaleWithShareHolderChartId'
                     style={{
-                        border: '1px solid red',
-                        width: '738px',
+                        // border: '1px solid red',
+                        width: '100%',
                         height: '194px'
                     }}></div>
             </div>

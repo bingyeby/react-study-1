@@ -76,7 +76,10 @@ export default {
         type: 'value',
         name: '(千万)',
         axisLine: {
-            show: false
+            show: false,
+            lineStyle: {
+                color: 'rgba(255,255,255,0.5)',
+            },
         },
         axisTick: {
             onGap: false,
@@ -86,11 +89,11 @@ export default {
         },
         axisLabel: {
             color: 'rgba(255,255,255,0.5)',
+            // formatter: '{value} ml'
         },
         splitLine: {
             lineStyle: {
                 color: 'rgba(255,255,255,0.1)',
-                type: 'dotted'
             },
         },
     },

@@ -1,65 +1,59 @@
 export default {
-    title: {
-        text: '董事会总席位:9',
-        x: 'center',
-        textStyle: {
-            color: 'white',
-            fontWeight: 'normal',
-            fontSize: 13
-        }
+  title: {
+    text: '董事会总席位:9',
+    x: 'center',
+    textStyle: {
+      color: 'white',
+      fontWeight: 'normal',
+      fontSize: 13,
     },
-    tooltip: {
-        trigger: 'item',
-        // formatter: '{a} <br/>{b} : {c} ({d}%)'
-    },
-    legend: {
-        show: false
-    },
-    series: [
+  },
+  color: ['#009245', '#00a99d', '#8cc63f', '#f7931e'],
+  tooltip: {
+    trigger: 'item',
+    // formatter: '{a} <br/>{b} : {c} ({d}%)'
+  },
+  legend: {
+    show: false,
+  },
+  series: [
+    {
+      name: '访问来源',
+      type: 'pie',
+      center: ['50%', '55%'],
+      radius: [0, '80%'],
+      label: {
+        normal: {
+          show: false,
+        },
+      },
+      data: [
         {
-            name: '访问来源',
-            type: 'pie',
-            center: ['50%', '55%'],
-            radius: [0, '80%'],
-            data: [
-                {
-                    value: 335,
-                    name: '实际控制人派驻董事会',
-                    chartsShowTip: '实际控制人派驻董事会数量',
-                    itemStyle: {
-                        color: '#009245'
-                    }
-                },
-                {
-                    value: 310,
-                    name: '独立董事',
-                    chartsShowTip: '独立董事数量',
-                    itemStyle: {
-                        color: '#00a99d'
-                    }
-                },
-                {
-                    value: 234,
-                    name: '一致行动人派驻董事会',
-                    chartsShowTip: '一致行动人派驻董事会数量',
-                    itemStyle: {
-                        color: '#8cc63f'
-                    }
-                },
-                {
-                    value: 135,
-                    name: '其他',
-                    chartsShowTip: '其他',
-                    itemStyle: {
-                        color: '#0071bc'
-                    }
-                }
-            ],
-            tooltip: {
-                extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d;font-family:"宋体"',
-                formatter(params) {
-                    console.log('params', params);
-                    return `
+          value: 335,
+          name: '实际控制人派驻董事会',
+          chartsShowTip: '实际控制人派驻董事会数量',
+        },
+        {
+          value: 310,
+          name: '独立董事',
+          chartsShowTip: '独立董事数量',
+        },
+        {
+          value: 234,
+          name: '一致行动人派驻董事会',
+          chartsShowTip: '一致行动人派驻董事会数量',
+        },
+        {
+          value: 135,
+          name: '其他',
+          chartsShowTip: '其他',
+        },
+      ],
+      tooltip: {
+        extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d;font-family:"宋体"',
+        formatter (params) {
+          console.log('params', params)
+          return `
                         <style>
                             .chart-tip-wrap{
                                 padding: 12px;
@@ -98,23 +92,20 @@ export default {
                             </div>
                         </div>
                     `
-                },
-                position: function (point, params, dom, rect, size) {
-                    // dom.setAttribute('style','')
-                    return [point[0], '10%'];
-                }
+        },
+        position: function (point, params, dom, rect, size) {
+          // dom.setAttribute('style','')
+          return [point[0], '10%']
+        },
 
-            },
-            label: {
-                show: false
-            },
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }
-    ]
+      },
+      itemStyle: {
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)',
+        },
+      },
+    },
+  ],
 }
