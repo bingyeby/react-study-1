@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
+import 'antd/dist/antd.css';
+
 import './Test5Style.less'
 
 import IncidenceRelation from './IncidenceRelation'

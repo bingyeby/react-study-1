@@ -49,7 +49,7 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' }
+            // options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' }
             // http://www.ruanyifeng.com/blog/2016/06/css_modules.html 
             // https://www.npmjs.com/package/css-loader#modules
             // https://blog.csdn.net/pcaxb/article/details/53896661
