@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-
-let echarts = require('echarts');
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
 // 指定图表的配置项和数据
 import option from './IncidenceRelationChartConfig';
@@ -14,12 +15,7 @@ let utilStyleHidden = {
 };
 
 let myChart;
-export default class Counter extends Component {
-    static propTypes = { // 限制类型
-    };
-    static defaultProps = { // 默认值
-        initialCount: 1
-    };
+class IncidenceRelation extends Component {
 
     constructor(props) {// 入参
         super(props);// 组件基类
@@ -122,3 +118,8 @@ export default class Counter extends Component {
         </div>
     }
 }
+
+IncidenceRelation.propTypes = {};
+// export default connect(() => ({}))(IncidenceRelation)
+export default IncidenceRelation
+

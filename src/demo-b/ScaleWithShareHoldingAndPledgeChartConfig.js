@@ -17,9 +17,20 @@ let getTipMap = function (params) {
 };
 
 export default {
-    grid: {left: 40, right: 0, top: 10, bottom: 40},
+    grid: {left: 40, right: 0, top: 10, bottom: 50},
+    legend: {
+        data: ['控制人持股比例', '实控人(含一致行动人)持股比例'],
+        textStyle: {
+            color: 'rgba(255,255,255,0.5)',
+            fontSize: 12,
+        },
+        right: 0,
+        bottom: 0,
+        itemHeight: 6,
+        itemWidth: 18,
+    },
     // backgroundColor: '#011821',//背景色
-    color: ['rgba(0,153,201,0.5)', 'rgba(7,89,117,0.5)', 'rgba(247,147,30,0.5)', 'rgba(9,177,73,0.255)'],
+    // color: ['rgba(0,153,201,0.5)', 'rgba(7,89,117,0.5)', 'rgba(247,147,30,0.5)', 'rgba(9,177,73,0.255)'],
     tooltip: {
         trigger: 'axis',
         extraCssText: 'font-size:12px;border-radius: 0;padding: 0;border: 0px solid white;background-color: #064b5d',
@@ -80,7 +91,6 @@ export default {
         {
             name: '控制人持股比例',
             type: 'line',
-            symbol: 'circle',
             symbolSize: 3,
             lineStyle: {
                 color: '#09bc48'
@@ -89,9 +99,9 @@ export default {
                 normal: {
                     borderWidth: 1,
                     borderColor: '#09bc48',
-                    color: 'white',
+                    color: '#09bc48',
                     shadowColor: '#f6fdf9',
-                    shadowBlur: 5
+                    shadowBlur: 3
                 }
             },
             data: [61, 10, 10, 0, 10],
@@ -99,7 +109,6 @@ export default {
         {
             name: '实控人(含一致行动人)持股比例',
             type: 'line',
-            symbol: 'circle',
             symbolSize: 3,
             lineStyle: {
                 color: '#f7931e'
@@ -108,12 +117,12 @@ export default {
                 normal: {
                     borderWidth: 1,
                     borderColor: '#f7931e',
-                    color: 'white',
+                    color: '#f7931e',
                     shadowColor: '#feefde',
-                    shadowBlur: 5
+                    shadowBlur: 3
                 }
             },
-            data: netFinancingArr,
+            data: [10, 10, 10, 10, 10],
         }
     ],
 }

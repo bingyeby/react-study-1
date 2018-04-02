@@ -1,14 +1,14 @@
 /* 股东比例 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-
-let echarts = require('echarts');
-
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
 import styles from './Scale.less'
 import ScaleWithShareHolderChartConfig from './ScaleWithShareHolderChartConfig';
 
-export default class ScaleWithShareHolder extends Component {
+class ScaleWithShareHolder extends Component {
 
     constructor(props) { // 入参
         super(props); // 组件基类
@@ -35,5 +35,7 @@ export default class ScaleWithShareHolder extends Component {
     }
 }
 
-// render(<ScaleWithShareHolder/>, document.getElementById(''));
+ScaleWithShareHolder.propTypes = {};
+// export default connect(() => ({}))(ScaleWithShareHolder)
+export default ScaleWithShareHolder
 

@@ -1,10 +1,13 @@
 /* 任职情况 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
 import styles from './GradeOfShareHolderStyle.less'
 
-export default class GradeOfShareHolder extends Component {
+class ComponentModule extends Component {
     constructor(props) {
         super(props);
     }
@@ -104,5 +107,6 @@ export default class GradeOfShareHolder extends Component {
     }
 }
 
-// render(<SituationOfOffice/>, document.getElementById(''));
-
+ComponentModule.propTypes = {};
+// export default connect(() => ({}))(ComponentModule)
+export default ComponentModule

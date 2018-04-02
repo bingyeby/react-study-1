@@ -1,14 +1,15 @@
 /* 控股股东评级 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-
-let echarts = require('echarts');
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
 
 import styles from './OwnFundStyle.less'
 import OwnFundChartConfig from './OwnFundChartConfig';
 
-export default class OwnFund extends Component {
+class OwnFund extends Component {
 
     constructor(props) { // 入参
         super(props); // 组件基类
@@ -33,6 +34,9 @@ export default class OwnFund extends Component {
         </div>
     }
 }
+OwnFund.propTypes = {};
+// export default connect(() => ({}))(OwnFund)
+export default OwnFund
 
-// render(<OwnFund/>, document.getElementById(''));
+
 

@@ -11,8 +11,18 @@ let getTipMap = function (params) {
 };
 
 export default {
-    grid: {left: 40, right: 0, top: 10, bottom: 40},
-    // backgroundColor: '#011821',//背景色
+    grid: {left: 40, right: 0, top: 30, bottom: 20},
+    legend: {
+        data: ['股东资产占比', '股东收入占比', '股东净利润占比'],
+        textStyle: {
+            color: 'rgba(255,255,255,0.5)',
+            fontSize: 12,
+        },
+        right: 0,
+        top: 0,
+        itemHeight: 6,
+        itemWidth: 18,
+    },
     color: ['rgba(0,153,201,0.5)', 'rgba(7,89,117,0.5)', 'rgba(247,147,30,0.5)', 'rgba(9,177,73,0.255)'],
     tooltip: {
         trigger: 'axis',
@@ -96,9 +106,8 @@ export default {
     }],
     series: [
         {
-            name: '股东资产占比：',
+            name: '股东资产占比',
             type: 'line',
-            symbol: 'circle',
             symbolSize: 3,
             lineStyle: {
                 color: '#09bc48'
@@ -107,7 +116,6 @@ export default {
                 normal: {
                     borderWidth: 1,
                     borderColor: '#09bc48',
-                    color: 'white',
                     shadowColor: '#f6fdf9',
                     shadowBlur: 5
                 }
@@ -115,9 +123,8 @@ export default {
             data: [30, 40, 50, 10, 90],
         },
         {
-            name: '股东净利润占比：',
+            name: '股东收入占比',
             type: 'line',
-            symbol: 'circle',
             symbolSize: 3,
             lineStyle: {
                 color: '#0099c9'
@@ -126,7 +133,6 @@ export default {
                 normal: {
                     borderWidth: 1,
                     borderColor: '#0099c9',
-                    color: 'white',
                     shadowColor: '#feefde',
                     shadowBlur: 5
                 }
@@ -134,9 +140,8 @@ export default {
             data: [50, 10, 40, 50, 60],
         },
         {
-            name: '股东收入占比：',
+            name: '股东净利润占比',
             type: 'line',
-            symbol: 'circle',
             symbolSize: 3,
             lineStyle: {
                 color: '#f7931e'
@@ -145,7 +150,6 @@ export default {
                 normal: {
                     borderWidth: 1,
                     borderColor: '#f7931e',
-                    color: 'white',
                     shadowColor: '#feefde',
                     shadowBlur: 5
                 }

@@ -1,10 +1,14 @@
 /* 股东任职 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
+
 
 import styles from './ShareholderRatingStyle.less'
 
-export default class SituationOfOffice extends Component {
+class ShareholderRating extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -89,4 +93,7 @@ export default class SituationOfOffice extends Component {
     }
 }
 
+ShareholderRating.propTypes = {};
+// export default connect(() => ({}))(ShareholderRating.js)
+export default ShareholderRating
 

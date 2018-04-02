@@ -1,15 +1,16 @@
 /* 董事会结构 */
-
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
-let echarts = require('echarts');
 
 // 指定图表的配置项和数据
 import boardStructureChartConfig from './BoardStructureChartConfig';
 import styles from './BoardStructureStyle.less'
 
-export default class Counter extends Component {
+class ComponentModule extends Component {
 
     constructor(props) { // 入参
         super(props); // 组件基类
@@ -82,4 +83,8 @@ export default class Counter extends Component {
         </div>
     }
 }
-// render(<Counter initialCount='1'/>
+
+
+ComponentModule.propTypes = {};
+// export default connect(() => ({}))(ComponentModule)
+export default ComponentModule

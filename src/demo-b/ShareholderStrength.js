@@ -1,10 +1,13 @@
 /* 股东实力 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
 import styles from './ShareholderStrengthStyle.less'
 
-export default class SituationOfOffice extends Component {
+class ShareholderStrength extends Component {
     constructor(props) {
         super(props);
     }
@@ -104,4 +107,7 @@ export default class SituationOfOffice extends Component {
     }
 }
 
+ShareholderStrength.propTypes = {};
+// export default connect(() => ({}))(ShareholderStrength)
+export default ShareholderStrength
 

@@ -1,16 +1,17 @@
 /* 持股 质押比例 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {connect} from 'dva'
+import echarts from 'echarts'
+import PropTypes from 'prop-types'
 
-let echarts = require('echarts');
 
 let _ = require('lodash');
-
 
 import styles from './Scale.less'
 import ScaleWithPledgeChartConfig from './ScaleWithShareHoldingAndPledgeChartConfig';
 
-export default class ScaleWithPledge extends Component {
+class ScaleWithShareHoldingAndPledge extends Component {
 
     constructor(props) { // 入参
         super(props); // 组件基类
@@ -73,5 +74,7 @@ export default class ScaleWithPledge extends Component {
     }
 }
 
-// render(<ScaleWithPledge/>, document.getElementById(''));
+ScaleWithShareHoldingAndPledge.propTypes = {};
+// export default connect(() => ({}))(ScaleWithShareHoldingAndPledge.js)
+export default ScaleWithShareHoldingAndPledge
 
