@@ -43,10 +43,6 @@ class IncidenceRelation extends Component {
 
     }
 
-    showLinkMsg(linkName) {
-        console.log('linkName', linkName);
-    }
-
     /**
      * 根据link的名字显示该层的结构
      * */
@@ -114,52 +110,40 @@ class IncidenceRelation extends Component {
                     {this.state.isLager ? '-' : '+'}
                 </span>
             </div>
-            <div className={styles['link-outer']}>
-                {/* 指示关系 */}
-                {
-                    this.state.links.map(function (link, i) {
-                        return <span key={i}>
-                            <span className={styles['inner-link']}
-                                  style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
-                            <span className={styles['inner-linkName']}
-                                  onClick={this.showLinkMsg.bind(this, link.linkName)}>{link.linkName}</span>
-                        </span>
-                    }.bind(this))
-                }
+            {/*
+                    <span>
+                        <span className='inner-default'>机构名称A</span>
+                    </span>
+                    <span>
+                        <span className='inner-link'>-</span>
+                        <span className='inner-default'>机构名称B</span>
+                    </span>
 
-                {/*<span>
-                    <span className='inner-default'>机构名称A</span>
-                </span>
-                <span>
-                    <span className='inner-link'>-</span>
-                    <span className='inner-default'>机构名称B</span>
-                </span>*/}
+                    <div id='IncidenceRelationChart' className={styles.IncidenceRelationChart} style={
+                        this.state.isLager ?
+                            {width: '800px', height: '800px'} :
+                            {width: '500px', height: '500px'}
+                    }></div>
+            */}
 
-                {/*<div id='IncidenceRelationChart' className={styles.IncidenceRelationChart} style={*/}
-                {/*this.state.isLager ?*/}
-                {/*{width: '800px', height: '800px'} :*/}
-                {/*{width: '500px', height: '500px'}*/}
-                {/*}></div>*/}
 
-                <IncidenceRelationChartModule canvasLabel={'lager'}></IncidenceRelationChartModule>
-
-                <Button type="primary" onClick={this.showModal}>Open</Button>
-                <Modal
-                    title="Basic Modal"
-                    visible={this.state.isLagerWinVisible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                >
-                    <IncidenceRelationChartModule canvasLabel={'big'}></IncidenceRelationChartModule>
-                </Modal>
-                <Modal
-                    title="Basic Modal"
-                    visible={this.state.isDetailShow}
-                    onOk={this.detailWinOkHandler}
-                    onCancel={this.detailWinCancelHandler}
-                >
-                </Modal>
-            </div>
+            <IncidenceRelationChartModule canvasLabel={'lager'}></IncidenceRelationChartModule>
+            <Button type="primary" onClick={this.showModal}>Open</Button>
+            <Modal
+                title="Basic Modal"
+                visible={this.state.isLagerWinVisible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+            >
+                <IncidenceRelationChartModule canvasLabel={'big'}></IncidenceRelationChartModule>
+            </Modal>
+            <Modal
+                title="Basic Modal"
+                visible={this.state.isDetailShow}
+                onOk={this.detailWinOkHandler}
+                onCancel={this.detailWinCancelHandler}
+            >
+            </Modal>
         </div>
     }
 }

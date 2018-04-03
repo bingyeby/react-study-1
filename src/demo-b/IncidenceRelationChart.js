@@ -42,9 +42,10 @@ class IncidenceRelationChart extends Component {
         myChart.setOption(option);
         myChart.on('click', function (e) {
             console.log(e);
-            console.log(myChart.setOption);
+
             option.series[0].data.pop();
             myChart.setOption(option);
+
             console.log(this.state.students);
             this.state.links.push({linkName: new Date().getTime(), linkType: 'B'});
             this.setState({'students': this.state.students});
@@ -61,8 +62,26 @@ class IncidenceRelationChart extends Component {
     }
 
 
+    showLinkMsg(linkName) {
+        console.log('linkName', linkName);
+    }
+
+
     render() {
         return <div>
+            <div className={styles.linkOuter}>
+                {/* 指示关系 */}
+                {
+                    this.state.links.map(function (link, i) {
+                        return <span key={i}>
+                            <span className={styles['inner-link']}
+                                  style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>
+                            <span className={styles['inner-linkName']}
+                                  onClick={this.showLinkMsg.bind(this, link.linkName)}>{link.linkName}</span>
+                        </span>
+                    }.bind(this))
+                }
+            </div>
             <div id={`IncidenceRelationChart${this.props.canvasLabel}`} className={styles.IncidenceRelationChart} style={
                 this.state.isLager ?
                     {width: '800px', height: '800px'} :
