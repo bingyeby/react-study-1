@@ -30,7 +30,7 @@ class IncidenceRelationChart extends Component {
              * linkType: A 资金 对外担保
              * linkType: B 股
              */
-            links: [{linkName: '机构名称XXX'}, {linkName: '机构名称XXX', linkType: 'A'}],
+            links: [{linkName: '机构名称XXX'}],
             isLager: false,
         };
     }
@@ -41,13 +41,15 @@ class IncidenceRelationChart extends Component {
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         myChart.on('click', function (e) {
+
+            console.log("chartClick");
             console.log(e);
 
             option.series[0].data.pop();
             myChart.setOption(option);
 
             console.log(this.state.students);
-            this.state.links.push({linkName: new Date().getTime(), linkType: 'B'});
+            this.state.links.push({linkName: e.name, linkType: 'B'});
             this.setState({'students': this.state.students});
         }.bind(this));
 
@@ -82,11 +84,12 @@ class IncidenceRelationChart extends Component {
                     }.bind(this))
                 }
             </div>
-            <div id={`IncidenceRelationChart${this.props.canvasLabel}`} className={styles.IncidenceRelationChart} style={
-                this.state.isLager ?
-                    {width: '800px', height: '800px'} :
-                    {width: '500px', height: '500px'}
-            }></div>
+            <div id={`IncidenceRelationChart${this.props.canvasLabel}`} className={styles.IncidenceRelationChart}
+                 style={
+                     this.state.isLager ?
+                         {width: '800px', height: '800px'} :
+                         {width: '500px', height: '500px'}
+                 }></div>
         </div>
     }
 }
