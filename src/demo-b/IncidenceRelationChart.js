@@ -5,7 +5,6 @@ import {connect} from 'dva'
 let echarts = require('echarts')
 
 // 指定图表的配置项和数据
-import option from './IncidenceRelationChartConfig'
 import styles from './IncidenceRelationStyle.less'
 
 
@@ -30,27 +29,33 @@ class IncidenceRelationChart extends Component {
              * linkType: A 资金 对外担保
              * linkType: B 股
              */
-            links: [{linkName: '机构名称XXX'}],
+            topLinks: [{linkName: '机构名称XXX'}],
             isLager: false,
         };
     }
 
     componentDidMount() {
         myChart = echarts.init(document.getElementById(`IncidenceRelationChart${this.props.canvasLabel}`));
-        console.log(this.props);
+        console.log(this.props.chartData);
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+        myChart.setOption(this.props.chartData);
         myChart.on('click', function (e) {
-
-            console.log("chartClick");
             console.log(e);
+            if(e.tar){
 
-            option.series[0].data.pop();
-            myChart.setOption(option);
+            }else if(){
+                console.log('显示某个公司点');
+                this.state.topLinks.push({linkName: e.name, linkType: 'B'});
+                this.props.chartData.series[0].data.pop();
+                myChart.setOption(this.props.chartData);
+            }
+            if(e.data.isMore){
+                console.log('弹框显示更多...');
+            }else{
+                console.log('改变表格...');
+            }
 
-            console.log(this.state.students);
-            this.state.links.push({linkName: e.name, linkType: 'B'});
-            this.setState({'students': this.state.students});
+
         }.bind(this));
 
     }
@@ -74,7 +79,7 @@ class IncidenceRelationChart extends Component {
             <div className={styles.linkOuter}>
                 {/* 指示关系 */}
                 {
-                    this.state.links.map(function (link, i) {
+                    this.state.topLinks.map(function (link, i) {
                         return <span key={i}>
                             <span className={styles['inner-link']}
                                   style={link.linkType ? utilStyleShow : utilStyleHidden}>-></span>

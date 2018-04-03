@@ -2,16 +2,101 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import {connect} from 'dva'
 
+import _ from 'lodash'
+
 let echarts = require('echarts');
 
 // 指定图表的配置项和数据
 import option from './IncidenceRelationChartConfig'
+import a from './IncidenceRelationData'
+
 import styles from './IncidenceRelationStyle.less'
 
 
 import IncidenceRelationChartModule from './IncidenceRelationChart'
 
+
 import {Modal, Button} from 'antd';
+
+
+Array(25).fill(1).forEach(function (n, i) {
+    a.sons[0].sons[0].sons.push({
+        name: '蔡成功-' + i,
+    })
+});
+
+
+function moreSons(sons, name) {
+    let sonsReturn = [];
+    if (sons.length > 10) {
+        sonsReturn = sons.slice(0, 10);
+        sonsReturn.push({name: `更多${name}（${sons.length - 10}）`, isMore: true});
+        return sonsReturn;
+    } else {
+        return sons;
+    }
+}
+
+let links = [];
+let data = [];
+
+let colorArr = {
+    '本企业': '#0099C9',// 本企业
+    '资金': '#3bb9b2',// 资金
+    '人物': '#3ead65',// 人物
+    '业务': '#e39132',// 业务
+    '股权': '#5b7fdb',// 股权
+};
+let dataStyle = [80, 60, 50, 10];
+
+let color = '';
+let level = 0;
+
+function deal(obj, level, fatherName) {
+    color = colorArr[obj.name] ? colorArr[obj.name] : color;
+    console.log(level);
+    data.push({
+        symbolSize: dataStyle[level],
+        fatherName: fatherName,
+        name: obj.name,
+        type: obj.type,
+        isMore: obj.isMore,
+        itemStyle: {
+            normal: {
+                color: color,
+            },
+        },
+        label: {// 未添加此属性值则默认为旁边显示
+            normal: {
+                position: level >= 3 ? 'right' : 'inside'
+            },
+        },
+    });
+
+    if (obj.sons) {
+        obj.sons = moreSons(obj.sons, obj.name);
+    }
+
+    _.forEach(obj.sons, function (n, i) {
+        links.push({
+            source: obj.name,
+            target: n.name,
+            name: '',
+            lineStyle: {
+                normal: {
+                    color: color,
+                },
+            },
+        });
+        deal(n, level + 1, obj.name)
+    });
+}
+
+deal(a, level);
+console.log(JSON.stringify({
+    data: data,
+    links: links
+}));
 
 
 let utilStyleShow = {};
@@ -127,7 +212,7 @@ class IncidenceRelation extends Component {
             */}
 
 
-            <IncidenceRelationChartModule canvasLabel={'lager'}></IncidenceRelationChartModule>
+            <IncidenceRelationChartModule canvasLabel={'lager'} chartData={option}></IncidenceRelationChartModule>
             <Button type="primary" onClick={this.showModal}>Open</Button>
             <Modal
                 title="Basic Modal"

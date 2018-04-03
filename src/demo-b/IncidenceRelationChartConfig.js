@@ -54,7 +54,7 @@ export default {
             data: [
                 {
                     name: '本企业',
-                    des: '汉东省省委常委，京州市市委书记。是一个正义无私的好官。<br/>但为人过于爱惜自己的羽毛，对待身边的亲人和朋友显得有些无情。',
+                    des: '',
                     itemStyle: {
                         normal: {
                             color: '#0099c9',
@@ -68,7 +68,7 @@ export default {
                 },
                 {
                     name: '资金',
-                    des: '汉东省省委常委，京州市市委书记。是一个正义无私的好官。<br/>但为人过于爱惜自己的羽毛，对待身边的亲人和朋友显得有些无情。',
+                    des: '',
                     itemStyle: {
                         normal: {
                             color: '#3bb9b2',
@@ -159,15 +159,35 @@ export default {
                 }, {
                     name: '蔡成功1',
                     symbolSize: 20,
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                        },
+                    },
                 }, {
                     name: '蔡成功2',
                     symbolSize: 20,
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                        },
+                    },
                 }, {
                     name: '蔡成功3',
                     symbolSize: 20,
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                        },
+                    },
                 }, {
                     name: '蔡成功4',
                     symbolSize: 20,
+                    itemStyle: {
+                        normal: {
+                            color: 'red',
+                        },
+                    },
                 }, {
                     name: '蔡成功5',
                     symbolSize: 20,
@@ -364,6 +384,9 @@ export default {
                         },
                     },
                 }],
+
+            /**/
+            "data":[{"symbolSize":80,"name":"本企业","itemStyle":{"normal":{"color":"#0099C9"}},"label":{"normal":{"position":"inside"}}},{"symbolSize":60,"fatherName":"本企业","name":"资金","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"inside"}}},{"symbolSize":50,"fatherName":"资金","name":"股东担保","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"inside"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-0","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-1","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-2","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-3","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-4","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-5","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-6","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-7","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-8","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"蔡成功-9","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"股东担保","name":"更多股东担保（15）","isMore":true,"itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":50,"fatherName":"资金","name":"对外担保","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"inside"}}},{"symbolSize":10,"fatherName":"对外担保","name":"1蔡成功","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"对外担保","name":"1蔡成功1","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"对外担保","name":"1蔡成功2","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"对外担保","name":"1蔡成功3","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":10,"fatherName":"对外担保","name":"1蔡成功4","itemStyle":{"normal":{"color":"#3bb9b2"}},"label":{"normal":{"position":"right"}}},{"symbolSize":60,"fatherName":"本企业","name":"人物","itemStyle":{"normal":{"color":"#3ead65"}},"label":{"normal":{"position":"inside"}}}],"links":[{"source":"本企业","target":"资金","name":"","lineStyle":{"normal":{"color":"#0099C9"}}},{"source":"资金","target":"股东担保","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-0","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-1","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-2","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-3","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-4","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-5","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-6","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-7","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-8","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"蔡成功-9","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"股东担保","target":"更多股东担保（15）","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"资金","target":"对外担保","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"对外担保","target":"1蔡成功","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"对外担保","target":"1蔡成功1","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"对外担保","target":"1蔡成功2","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"对外担保","target":"1蔡成功3","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"对外担保","target":"1蔡成功4","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}},{"source":"本企业","target":"人物","name":"","lineStyle":{"normal":{"color":"#3bb9b2"}}}]
         },
     ],
 }
