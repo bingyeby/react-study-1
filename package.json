@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "antd": "^3.4.0",
+    "babel-cli": "^6.26.0",
     "dva": "^2.1.0",
     "echarts": "^3.7.1",
     "prop-types": "^15.6.1",
@@ -41,7 +42,8 @@
     "dev": "node server.js",
     "dll": "webpack --config webpack.config.dll.js --progress",
     "build": "set BABEL_ENV=production && webpack --config webpack.config.pro.js --progress",
-    "lint": "eslint scripts"
+    "lint": "eslint scripts",
+    "test": "babel-node --presets es2015 ./src/demo-b/AutoDataTable/xxx.js"
   },
   "author": "",
   "license": "ISC"

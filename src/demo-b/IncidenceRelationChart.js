@@ -41,18 +41,22 @@ class IncidenceRelationChart extends Component {
         myChart.setOption(this.props.chartData);
         myChart.on('click', function (e) {
             console.log(e);
-            if(e.tar){
 
-            }else if(){
-                console.log('显示某个公司点');
-                this.state.topLinks.push({linkName: e.name, linkType: 'B'});
-                this.props.chartData.series[0].data.pop();
-                myChart.setOption(this.props.chartData);
-            }
-            if(e.data.isMore){
-                console.log('弹框显示更多...');
-            }else{
-                console.log('改变表格...');
+            if (e.data.fatherName === '股东担保') {
+                console.log('点击的是股东担保下面的某个子节点');
+                if (e.data.isMore) {
+                    console.log('点击的是‘显示更多’节点，弹框显示更多节点信息');
+                } else {
+                    console.log('根据点击的节点信息');
+                    console.log('显示某个公司点');
+                    this.state.topLinks.push({linkName: e.name, linkType: 'B'});
+                    this.props.chartData.series[0].data.pop();
+                    myChart.setOption(this.props.chartData);
+                }
+            } else if (e.data.fatherName === '对外担保') {
+                console.log('点击的是对外担保下面的某个子节点');
+
+
             }
 
 
@@ -100,7 +104,6 @@ class IncidenceRelationChart extends Component {
 }
 
 IncidenceRelationChart.propTypes = {};
-
 // export default connect(() => ({}))(IncidenceRelation)
 export default IncidenceRelationChart
 

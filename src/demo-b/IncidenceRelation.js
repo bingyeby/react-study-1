@@ -220,7 +220,7 @@ class IncidenceRelation extends Component {
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}
             >
-                <IncidenceRelationChartModule canvasLabel={'big'}></IncidenceRelationChartModule>
+                <IncidenceRelationChartModule canvasLabel={'big'}  chartData={option}></IncidenceRelationChartModule>
             </Modal>
             <Modal
                 title="Basic Modal"
