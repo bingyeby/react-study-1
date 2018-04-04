@@ -43,7 +43,7 @@
     "dll": "webpack --config webpack.config.dll.js --progress",
     "build": "set BABEL_ENV=production && webpack --config webpack.config.pro.js --progress",
     "lint": "eslint scripts",
-    "test": "babel-node --presets es2015 ./src/demo-b/AutoDataTable/xxx.js"
+    "test": "babel-node --presets es2015 ./src/demo-b/AutoDataTable/test.js"
   },
   "author": "",
   "license": "ISC"
