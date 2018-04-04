@@ -1,4 +1,4 @@
-let _ = require('./lodash.core')
+let _ = require('./lodash');
 let a = {
     name: '本企业',
     sons: [
@@ -37,27 +37,27 @@ let a = {
 };
 
 
-
-
 // console.log(JSON.stringify({
 //     data: data,
 //     links: links
 // }));
 
-
-let fatherName='对外担保';
-
-let detail = [];
-function getDetailWithFatherName(obj) {
-    console.log(obj.name);
-    if (obj.name === fatherName) {
-        detail = obj.sons;
-    }
-    _.forEach(obj.sons, function (n, i) {
-        getDetailWithFatherName(n);
-    });
-}
-getDetailWithFatherName(a);
-console.log(detail);
+//
+// let fatherName = '对外担保';
+//
+// let detail = [];
+//
+// function getDetailWithFatherName(obj) {
+//     console.log(obj.name);
+//     if (obj.name === fatherName) {
+//         detail = obj.sons;
+//     }
+//     _.forEach(obj.sons, function (n, i) {
+//         getDetailWithFatherName(n);
+//     });
+// }
+//
+// getDetailWithFatherName(a);
+// console.log(detail);
 
 

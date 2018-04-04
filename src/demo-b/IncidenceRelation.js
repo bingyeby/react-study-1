@@ -418,8 +418,8 @@ IncidenceRelation.propTypes = {
   comName: PropTypes.string,
 }
 
-export default connect(() => ({}))(IncidenceRelation)
-// export default IncidenceRelation
+// export default connect(() => ({}))(IncidenceRelation)
+export default IncidenceRelation
 
 
 
