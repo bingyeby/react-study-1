@@ -103,8 +103,8 @@ class IncidenceRelationChart extends Component {
             <div id={`IncidenceRelationChart${this.props.canvasLabel}`} className={styles.IncidenceRelationChart}
                  style={
                      this.state.isLager ?
-                         {width: '800px', height: '400px'} :
-                         {width: '500px', height: '500px'}
+                         {width: '100%', height: '510px'} :
+                         {width: '100%', height: '500PX'}
                  }></div>
         </div>
     }
