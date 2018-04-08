@@ -63,7 +63,7 @@ module.exports = {
           { loader: "style-loader" }, // creates style nodes from JS strings
           {
             loader: "css-loader",
-            options: { modules: true, localIdentName: '[path]+[name]+[local]' }
+            options: { modules: true, localIdentName: '[local]-[hash:base64:5]' }
           },// translates CSS into CommonJS
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: "less-loader" } // compiles Less to CSS 
