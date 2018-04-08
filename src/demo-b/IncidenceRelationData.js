@@ -25,12 +25,30 @@ export default {
                         },
                         {
                             name: '1蔡成功4',
-                        },
+                        }
                     ]
                 }
             ]
         }, {
             name: '人物',
+            sons: [
+                {
+                    name: 'xx',
+                    sons: []
+                },
+                {
+                    name: 'yy',
+                    sons: [
+                        {
+                            name: '12',
+                        }
+                    ]
+                }
+            ]
+        }, {
+            name: '业务',
+        }, {
+            name: '股权',
         }
     ]
 }

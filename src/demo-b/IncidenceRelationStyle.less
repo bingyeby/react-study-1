@@ -1,3 +1,6 @@
+@textTitle: fade(#ffffff, 50%);
+@textValue: fade(#ffffff, 100%);
+
 .label {
   padding: 0 0 0 15px;
   display: flex;
@@ -16,6 +19,29 @@
     }
   }
 }
+.fatherBOuter{
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  //background: lightcyan;
+  .fatherB {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid @textTitle;
+    color: @textTitle;
+    cursor: default;
+    border-radius: 10px;
+  }
+  .fatherB:hover {
+    border: 1px solid @textValue;
+    color: @textValue;
+
+  }
+}
+
 .inner-linkName {
   color: #0099c9;
   cursor: pointer;
@@ -57,14 +83,11 @@
 .IncidenceRelationChart {
   //border: 1px solid red;
 }
-
-.optMaxMin{
+.optMaxMin {
   display: inline-block;
   float: right;
   cursor: pointer;
 }
-
-
 // modal 样式覆盖
 .modalStyle {
   padding-bottom: 0px;
@@ -77,7 +100,7 @@
   }
   :global .ant-modal-header {
     background: #0e1821;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 14px 30px;
     .ant-modal-title {
       color: #fff;
@@ -105,8 +128,6 @@
     display: none;
   }
 }
-
-
 .tableStyle {
   width: 100%;
   height: 200px;
