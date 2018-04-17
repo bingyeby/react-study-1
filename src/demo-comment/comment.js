@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 require('./comment.less');
-var staticData = [
+let staticData = [
     { author: "张飞", text: "我在写一条评论~！" },
     { author: "关羽", text: "2货，都知道你在写的是一条评论。。" },
     { author: "刘备", text: "哎，咋跟这俩逗逼结拜了！" }
@@ -19,13 +19,13 @@ var staticData = [
 */
 
 // http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js
-// var converter = new Showdown.converter();//markdown
+// let converter = new Showdown.converter();//markdown
 
 //评论内容组件
 class Comment extends Component {
     render() {
-        // var rawMarkup = converter.makeHtml(this.props.children.toString());
-        var rawMarkup = this.props.children.toString();
+        // let rawMarkup = converter.makeHtml(this.props.children.toString());
+        let rawMarkup = this.props.children.toString();
         return (
             <div className="comment">
                 <h2 className="commentAuthor"> {this.props.author}: </h2>
@@ -38,7 +38,7 @@ class Comment extends Component {
 //评论列表组件
 class CommentList extends Component {
     render() {
-        var commentNodes = this.props.data.map(function (comment, i) {
+        let commentNodes = this.props.data.map(function (comment, i) {
             return (
                 <Comment author={comment.author} key={i}> {comment.text} </Comment>
             );
@@ -60,8 +60,8 @@ class CommentForm extends Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        var author = this.refs.author.value.trim();
-        var text = this.refs.text.value.trim();
+        let author = this.refs.author.value.trim();
+        let text = this.refs.text.value.trim();
         if (!author || !text) {
             return;
         }
@@ -98,8 +98,8 @@ class CommentBox extends Component {
     }
     handleCommentSubmit(comment) {
         //TODO: submit to the server and refresh the list
-        var comments = this.state.data;
-        var newComments = comments.concat([comment]);
+        let comments = this.state.data;
+        let newComments = comments.concat([comment]);
 
         //这里也不向后端提交了
         staticData = newComments;

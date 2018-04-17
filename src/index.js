@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
 import App from './demo-a/app';
 // render(<App />, document.getElementById("root"));
 
 import _ from 'lodash';
+
 console.log(_.keys);
 import common from './common';
+
 console.log(common);
 
-import "./demo-b/Test5"
+// import "./demo-b/Test5"
 // import "./demo-comment/comment"
+
+import './demo-c/index'

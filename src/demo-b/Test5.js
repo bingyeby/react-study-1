@@ -17,8 +17,6 @@ import GradeOfShareHolder from './GradeOfShareHolder';
 
 import GradeOfShareHolderPrivateEnterprise from './GradeOfShareHolderPrivateEnterprise';
 
-
-
 // import ScaleWithShareHoldingAndPledge from './ScaleWithShareHoldingAndPledge';
 // import ScaleWithShareHolder from './ScaleWithShareHolder';
 
@@ -27,19 +25,21 @@ class Counter extends Component {
     render() {
         return <div>
             {/*<BoardStructure></BoardStructure>/!*董事会结构*!/*/}
-            <ShareholderStrength></ShareholderStrength>{/*股东实力*/}
+            {/*<ShareholderStrength></ShareholderStrength>/!*股东实力*!/*/}
 
-            <ShareholderStrengthPrivateEnterprise></ShareholderStrengthPrivateEnterprise>{/*股东实力*/}
+            {/*<ShareholderStrengthPrivateEnterprise></ShareholderStrengthPrivateEnterprise>/!*股东实力*!/*/}
 
-            <GradeOfShareHolder></GradeOfShareHolder>{/*股东控股评级*/}
-            <GradeOfShareHolderPrivateEnterprise></GradeOfShareHolderPrivateEnterprise>{/*股东控股评级*/}
+            {/*<GradeOfShareHolder></GradeOfShareHolder>/!*股东控股评级*!/*/}
+            {/*<GradeOfShareHolderPrivateEnterprise></GradeOfShareHolderPrivateEnterprise>/!*股东控股评级*!/*/}
 
 
-            {/*<IncidenceRelation></IncidenceRelation>/!*关联关系图*!/*/}
+            <IncidenceRelation></IncidenceRelation>{/*关联关系图*/}
             {/*<SituationOfOffice></SituationOfOffice>/!*管理层在股东单位任职情况*!/*/}
             {/*<OwnFund></OwnFund>/!*股东占股*!/*/}
             {/*<ScaleWithShareHoldingAndPledge></ScaleWithShareHoldingAndPledge>/!*实际控制人持股及质押比例*!/*/}
             {/*<ScaleWithShareHolder></ScaleWithShareHolder>/!*股东占比*!/*/}
+            <img src="./static/搜狗截图20180408200440.png" alt=""/>
+            <img src="./static/微信图片_20180328150143.png" alt=""/>
         </div>
     }
 }

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
-class Toggle extends React.Component {
+export default class Toggle extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isToggleOn: true };
+        this.state = {isToggleOn: true};
 
         // This binding is necessary to make `this` work in the callback
         this.handleClick = this.handleClick.bind(this);
@@ -24,5 +24,3 @@ class Toggle extends React.Component {
         );
     }
 }
-
-render(<Toggle />, document.getElementById('root'));
