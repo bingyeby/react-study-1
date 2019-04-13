@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
+/*
+* 载入组件1
+* */
 import App from './demo-a/app';
 // render(<App />, document.getElementById("root"));
 
-import _ from 'lodash';
-
-console.log(_.keys);
-import common from './common';
-
-console.log(common);
-
-// import "./demo-b/Test5"
-// import "./demo-comment/comment"
-
-import './demo-c/index'
+/*
+* 载入组件其他
+* */
+// import "./demo-b/index"
+// import './demo-c/index'
+import "./demo-comment/comment"

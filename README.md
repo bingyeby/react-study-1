@@ -1,4 +1,4 @@
-### 说明
+### 基于
     https://github.com/jrainlau/react-es6
 
 ### webpack4 或者者其他loder的一些变化
