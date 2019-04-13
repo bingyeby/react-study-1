@@ -10,7 +10,7 @@ import TableScroll from './TableScroll.js';
 class Counter extends Component {
     render() {
         return <div>
-            <TableScroll></TableScroll>{/*管理层在股东单位任职情况*/}
+            <TableScroll></TableScroll>
         </div>
     }
 }
