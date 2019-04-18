@@ -1,14 +1,11 @@
-/* 股东任职 */
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {connect} from 'dva'
 import echarts from 'echarts'
 import PropTypes from 'prop-types'
+import styles from './TableScroll.less'
 
-
-import styles from './ShareholderRatingStyle.less'
-
-class ShareholderRating extends Component {
+class Com extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,16 +52,16 @@ class ShareholderRating extends Component {
 
     render() {
         return (<div>
-            <div className='moduleTitle'>管理层在股东单位任职情况</div>
+            <div className='moduleTitle'>title</div>
             <div className={styles.tableOuter}>
                 <div className={styles.tableOuterContent} ref='tableOuterContent'>
                     <table>
                         <thead>
                         <tr>
-                            <th>任职人员名称</th>
-                            <th>在本公司担任的职务</th>
-                            <th>股东单位名称</th>
-                            <th>在股东单位担任的职务</th>
+                            <th>1</th>
+                            <th>1</th>
+                            <th>1</th>
+                            <th>1</th>
                         </tr>
                         </thead>
                         <tbody ref='scrollContain'>
@@ -84,7 +81,7 @@ class ShareholderRating extends Component {
                                 </tr>
                             )
                         }
-                        <div className={styles.scrollBar} ref='scrollBar' style={this.state.scrollBarStyle}></div>
+                        <tr className={styles.scrollBar} ref='scrollBar' style={this.state.scrollBarStyle}></tr>
                         </tbody>
                     </table>
                 </div>
@@ -93,7 +90,6 @@ class ShareholderRating extends Component {
     }
 }
 
-ShareholderRating.propTypes = {};
-// export default connect(() => ({}))(ShareholderRating.js)
-export default ShareholderRating
+Com.propTypes = {};
+export default Com
 

@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 import PropTypes from 'prop-types';
 
 
 require('./comment.less');
 let staticData = [
-    { author: "张飞", text: "我在写一条评论~！" },
-    { author: "关羽", text: "2货，都知道你在写的是一条评论。。" },
-    { author: "刘备", text: "哎，咋跟这俩逗逼结拜了！" }
+    {author: "张飞", text: "我在写一条评论~！"},
+    {author: "关羽", text: "2货，都知道你在写的是一条评论。。"},
+    {author: "刘备", text: "哎，咋跟这俩逗逼结拜了！"}
 ];
+
 /** 组件结构：
-    <CommentBox>
-        <CommentList>
-            <Comment />
-        </CommentList>
-        <CommentForm />
-    </CommentBox>
-*/
+ <CommentBox>
+ <CommentList>
+ <Comment />
+ </CommentList>
+ <CommentForm />
+ </CommentBox>
+ */
 
 // http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js
 // let converter = new Showdown.converter();//markdown
@@ -29,7 +30,7 @@ class Comment extends Component {
         return (
             <div className="comment">
                 <h2 className="commentAuthor"> {this.props.author}: </h2>
-                <span dangerouslySetInnerHTML={{ __html: rawMarkup }} />
+                <span dangerouslySetInnerHTML={{__html: rawMarkup}}/>
             </div>
         );
     }
@@ -58,6 +59,7 @@ class CommentForm extends Component {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleSubmit(e) {
         e.preventDefault();
         let author = this.refs.author.value.trim();
@@ -65,17 +67,18 @@ class CommentForm extends Component {
         if (!author || !text) {
             return;
         }
-        this.props.onCommentSubmit({ author: author, text: text });
+        this.props.onCommentSubmit({author: author, text: text});
         this.refs.author.value = '';
         this.refs.text.value = '';
         return;
     }
+
     render() {
         return (
             <form className="commentForm" onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Your name" ref="author" /><br />
-                <textarea type="text" placeholder="Say something..." ref="text" ></textarea><br />
-                <input type="submit" value="Post" />
+                <input type="text" placeholder="Your name" ref="author"/><br/>
+                <textarea type="text" placeholder="Say something..." ref="text"></textarea><br/>
+                <input type="submit" value="Post"/>
             </form>
         );
     }
@@ -86,16 +89,18 @@ class CommentForm extends Component {
 class CommentBox extends Component {
     constructor(props) {
         super(props);
-        this.state = { data: [] };
+        this.state = {data: []};
         this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
+
     loadCommentsFromServer() {
-        this.setState({ data: staticData });
+        this.setState({data: staticData});
         /* 方便起见，这里就不走服务端了，可以自己尝试
         $.ajax({ url: this.props.url + "?_t=" + new Date().valueOf(), dataType: 'json', success: function (data){ this.setState({data: data}); }.bind(this), error: function (xhr, status, err){ console.error(this.props.url, status, err.toString()); }.bind(this) });
         */
     }
+
     handleCommentSubmit(comment) {
         //TODO: submit to the server and refresh the list
         let comments = this.state.data;
@@ -104,24 +109,27 @@ class CommentBox extends Component {
         //这里也不向后端提交了
         staticData = newComments;
 
-        this.setState({ data: newComments });
+        this.setState({data: newComments});
     }
+
     //组件添加的时候运行
     componentDidMount() {
         this.loadCommentsFromServer();
         this.interval = setInterval(this.loadCommentsFromServer, this.props.pollInterval);
     }
+
     //组件删除的时候运行
     componentWillUnmount() {
         clearInterval(this.interval);
     }
+
     //调用setState或者父级组件重新渲染不同的props时才会重新调用
     render() {
         return (
             <div className="commentBox">
                 <h1>Comments</h1>
-                <CommentList data={this.state.data} />
-                <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+                <CommentList data={this.state.data}/>
+                <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
             </div>
         );
     }
@@ -129,7 +137,7 @@ class CommentBox extends Component {
 //当前目录需要有comments.json文件
 //这里定义属性，如url、pollInterval，包含在props属性中
 render(
-    <CommentBox url="comments.json" pollInterval="2000" />,
+    <CommentBox url="comments.json" pollInterval="2000"/>,
     document.getElementById("root")
 );
 
