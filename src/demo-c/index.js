@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 
 
@@ -10,7 +10,7 @@ import Test4 from './Test4'
 
 
 // setState({count : ~~this.state.count+1})
-class Test extends Component {
+export default class Test extends Component {
 
     constructor(props) {// 入参
         super(props);// 组件基类
@@ -18,7 +18,9 @@ class Test extends Component {
 
     render() {
         return <div>
+            <Test1></Test1>
             <Test2></Test2>
+            <Test3></Test3>
         </div>
     }
 }

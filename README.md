@@ -1,5 +1,6 @@
-### 基于
-    https://github.com/jrainlau/react-es6
+### 项目简介
+    react基础  less 样式模块化 代码分割 webpack.dll插件使用 自动刷新
+    webpack实现react ES6书写 配置参考: https://github.com/jrainlau/react-es6
 
 ### webpack4 或者者其他loder的一些变化
     1. 需要装webpack-cli
@@ -16,14 +17,14 @@
 
 ### 一个简易的webpack配置：
     -devDependencies
-    babel-core babel-loader babel-preset-es2015 babel-preset-react 
-    css-loader less less-loader style-loader url-loader 
+    babel-core babel-loader babel-preset-es2015 babel-preset-react
+    css-loader less less-loader style-loader url-loader
     webpack webpack-cli webpack-dev-server
 
     -dependencies
     react react-dom react-intl
 
-    -script 
+    -script
     webpack-dev-server --inline --hot
     webpack --progress --profile --colors
     webpack -p --config webpack.dll.config.js --progress --profile --colors
@@ -55,6 +56,34 @@
         })
     ]
 
+### 代码分割
+    https://reacttraining.com/react-router/web/guides/code-splitting
+    {
+        "presets": ["@babel/preset-react"],
+        "plugins": ["@babel/plugin-syntax-dynamic-import"]
+    }
+    import loadable from 'react-loadable'
+
+### 关于webpack中动态import()打包后的文件名称定义
+    https://blog.csdn.net/javao_0/article/details/85162458
+
+    动态import()打包出来文件的name是按照0,1,2...依次排列，如0.js、1.js等，有的时候我们希望打包出来的文件名是打包前的文件名称。要实现这，需要经历3个步骤：
+
+    1. 在webpack配置文件中的output中添加chunkFilename。命名规则根据自己的项目来定，其中[name]就是文件名，这一块更详细的说明请点击这里。
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: '[name].[hash:8].js',
+        chunkFilename: '[name].[hash:8].js',//动态import文件名
+    },
+
+    2. 在动态import()代码处添加注释webpackChunkName告诉webpack打包后的chunk的名称（注释中的内容很重要，不能省掉），这里打包以后的name就是MyFile。
+    import(/* webpackChunkName: "MyFile" */`../containers/MyFile`)
+
+    3. 大多数情况下我们使用动态import()是通过循环来做的，这样我们就不得不引入变量了，使用[request]来告诉webpack，这里的值是根据后面传入的字符串来决定，本例中就是变量pathName的值，具体如下：
+    import(/* webpackChunkName: "[request]" */`../containers/${pathName}`)
+
+
+
 ### 静态类型检查
     像 Flow 和 TypeScript 这样的静态类型检查器可以在运行代码之前识别某些类型的问题。 他们还可以通过添加自动完成功能来改善开发人员的工作流程。 出于这个原因，对于更大的代码库我们建议使用 Flow 或者 TypeScript 来替代 PropTypes。
 
@@ -76,7 +105,7 @@
         render(){
             <input type="text" ref={(input) => this.input = input} />
         }
-    
+
 ### key
     React支持了一个key属性。当子节点有key时，React使用key来匹配原本树的子节点和新树的子节点。
 
@@ -353,7 +382,7 @@
         static propTypes = { name: PropTypes.string };
     }
     // ES6 明确规定，Class 内部只有静态方法，没有静态属性。
-    // 提案：类的实例属性可以用等式，写入类的定义之中。 类的静态属性只要在上面的实例属性写法前面，加上static关键字就可以了。 
+    // 提案：类的实例属性可以用等式，写入类的定义之中。 类的静态属性只要在上面的实例属性写法前面，加上static关键字就可以了。
     // 使用像 transform-class-properties 的 Babel 转换器。
 #### 常见的验证器
     JS 原生类型：array,bool,func,number,object,string,symbol,
@@ -375,7 +404,7 @@
     state 和 props 主要的区别在于 props 是不可变的 只读的，而 state 可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。
     由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。
 
-### 组合使用 state 和 props	
+### 组合使用 state 和 props
     我们可以在父组件中设置 state， 并通过在子组件上使用 props 将其传递到子组件上。 在 render 函数中, 设置 name 来获取父组件传递过来的数据。
     class Testson extends Component {
       constructor(props) {
@@ -400,7 +429,7 @@
     };
     render(<Test />, document.getElementById("root"));
 
-### Props 是只读的	
+### Props 是只读的
     无论你用函数或类的方法来声明组件, 它都无法修改其自身 props. 思考下列 sum (求和)函数:
     function sum(a, b) {
         return a + b;
@@ -453,5 +482,13 @@
 
     > 获得DOM对象
     在设置了React元素的ref属性后，可以使用React.findDOMNode()方法获得对应的 DOM对象： React.findDOMNode(component)
-    参数component是一个React组件对象，如前所述，我们可以通过this.refs对象获得。 
+    参数component是一个React组件对象，如前所述，我们可以通过this.refs对象获得。
     如果React元素已经渲染到DOM树上，findDOMNode()方法将返回组件对象对应的DOM节 点对象，后续就可以使用标准的DOM API操作这个DOM对象了。
+
+
+### dva
+    dva源码解析（一）
+    http://cnodejs.org/topic/5942b166ff5813233faad8c3
+
+    本章节会引导开发者快速搭建 dva 项目，并熟悉他的所有概念。
+    https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/getting-started.md

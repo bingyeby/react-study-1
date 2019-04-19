@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
@@ -19,7 +21,6 @@
     "eslint-plugin-react": "^7.7.0",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
-    "lodash": "^4.17.5",
     "postcss-loader": "^2.1.1",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
@@ -31,12 +32,17 @@
   },
   "devDependencies": {
     "antd": "^3.4.0",
-    "babel-cli": "^6.26.0",
     "dva": "^2.1.0",
     "echarts": "^3.7.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.0.0",
+    "html2canvas": "^1.0.0-rc.1",
+    "jquery": "^3.4.0",
+    "react-router": "^5.0.0",
+    "lodash": "^4.17.5"
   },
   "scripts": {
     "dev": "node server.js",

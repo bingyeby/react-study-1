@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 
 
 require('./comment.less');
 let staticData = [
-    {author: "张飞", text: "我在写一条评论~！"},
-    {author: "关羽", text: "2货，都知道你在写的是一条评论。。"},
-    {author: "刘备", text: "哎，咋跟这俩逗逼结拜了！"}
+    { author: "a", text: "1" },
+    { author: "b", text: "2" },
+    { author: "c", text: "3" }
 ];
 
 /** 组件结构：
@@ -26,11 +26,11 @@ let staticData = [
 class Comment extends Component {
     render() {
         // let rawMarkup = converter.makeHtml(this.props.children.toString());
-        let rawMarkup = this.props.children.toString();
+        let rawMarkup = this.props.children.join('');
         return (
             <div className="comment">
-                <h2 className="commentAuthor"> {this.props.author}: </h2>
-                <span dangerouslySetInnerHTML={{__html: rawMarkup}}/>
+                <b className="commentAuthor"> {this.props.author}: </b>
+                <span dangerouslySetInnerHTML={{ __html: rawMarkup }} />
             </div>
         );
     }
@@ -67,7 +67,7 @@ class CommentForm extends Component {
         if (!author || !text) {
             return;
         }
-        this.props.onCommentSubmit({author: author, text: text});
+        this.props.onCommentSubmit({ author: author, text: text });
         this.refs.author.value = '';
         this.refs.text.value = '';
         return;
@@ -76,9 +76,9 @@ class CommentForm extends Component {
     render() {
         return (
             <form className="commentForm" onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Your name" ref="author"/><br/>
-                <textarea type="text" placeholder="Say something..." ref="text"></textarea><br/>
-                <input type="submit" value="Post"/>
+                <input type="text" placeholder="Your name" ref="author" /><br />
+                <textarea type="text" placeholder="Say something..." ref="text"></textarea><br />
+                <input type="submit" value="Post" />
             </form>
         );
     }
@@ -86,16 +86,16 @@ class CommentForm extends Component {
 
 
 //评论块组件
-class CommentBox extends Component {
+export default class CommentBox extends Component {
     constructor(props) {
         super(props);
-        this.state = {data: []};
+        this.state = { data: [] };
         this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
 
     loadCommentsFromServer() {
-        this.setState({data: staticData});
+        this.setState({ data: staticData });
         /* 方便起见，这里就不走服务端了，可以自己尝试
         $.ajax({ url: this.props.url + "?_t=" + new Date().valueOf(), dataType: 'json', success: function (data){ this.setState({data: data}); }.bind(this), error: function (xhr, status, err){ console.error(this.props.url, status, err.toString()); }.bind(this) });
         */
@@ -109,7 +109,7 @@ class CommentBox extends Component {
         //这里也不向后端提交了
         staticData = newComments;
 
-        this.setState({data: newComments});
+        this.setState({ data: newComments });
     }
 
     //组件添加的时候运行
@@ -128,16 +128,17 @@ class CommentBox extends Component {
         return (
             <div className="commentBox">
                 <h1>Comments</h1>
-                <CommentList data={this.state.data}/>
-                <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
+                <CommentList data={this.state.data} />
+                <CommentForm onCommentSubmit={this.handleCommentSubmit} />
             </div>
         );
     }
 };
+
 //当前目录需要有comments.json文件
 //这里定义属性，如url、pollInterval，包含在props属性中
-render(
-    <CommentBox url="comments.json" pollInterval="2000"/>,
-    document.getElementById("root")
-);
+// render(
+//     <CommentBox url="comments.json" pollInterval="2000" />,
+//     document.getElementById("root")
+// );
 

@@ -17,7 +17,8 @@ module.exports = {
     // 所有输出文件的目标路径
     // 必须是绝对路径（使用 Node.js 的 path 模块）
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
+    chunkFilename: '[name].[chunkhash:5].chunk.js',
   },
   devServer: {
     proxy: { // proxy URLs to backend development server

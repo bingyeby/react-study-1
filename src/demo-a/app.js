@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Component1 from './demo1.js'
 import Component2 from './demo2.js'
 import Component3 from './demo3.js'
@@ -9,10 +9,19 @@ import Component7 from './demo7.js'
 
 
 export default class Demo extends Component {
+
+  componentDidMount = () => {
+  }
+
   render() {
     return (
-      <div>
-        <Component1></Component1>
+      <div onClick={(n) => {
+        // 如何获取子组件的方法和对象
+        this.Component1Child.childFun()
+      }}>
+        <Component1 getChild={(n) => {
+          this.Component1Child = n
+        }}></Component1>
         <Component2></Component2>
         <Component3 title='Props example'></Component3>
         <Component4>

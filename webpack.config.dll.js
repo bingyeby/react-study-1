@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        basic: ['react', 'react-dom', 'lodash', './src/common.js']
+        basic: ['react', 'react-dom', 'react-router-dom', 'lodash', './src/common.js']
     },
     output: {
         path: path.resolve(__dirname, 'static'),// string
