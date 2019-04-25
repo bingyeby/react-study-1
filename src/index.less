@@ -1,7 +1,18 @@
-.linkW {
+.outer {
+  display: flex;
+  min-height: 100vh;
+  .nav {
+    background: white;
+    flex: 0 0 150px;
     display: flex;
-    justify-content: space-between;
+    flex-flow: column;
     a {
-        border-bottom: 1px solid blue;
+      border-bottom: 1px solid blue;
+      word-break: break-all;
     }
+  }
+  .content {
+
+  }
 }
+

@@ -1,10 +1,7 @@
-@textTitle: fade(#ffffff, 50%);
-@textValue: fade(#ffffff, 100%);
 .tableOuter {
-  & > .tableOuterContent {
-    color: @textValue;
+  .tableOuterContent {
     font-size: 12px;
-    border: 1px solid fade(#ffffff, 20);
+    border: 1px solid #9a9a9a;
     white-space: nowrap;
     display: inline-block;
     width: 100%;
@@ -18,12 +15,13 @@
     }
     table tbody {
       display: block;
-      height: 192px;
+      height: 300px;
       overflow-y: scroll;
       position: relative;
     }
     table thead {
-      width: calc(100% - 0px)
+      width: calc(100% - 0px);
+      background: #9a9a9a;
     }
     table {
       border-collapse: collapse;
@@ -33,7 +31,7 @@
         height: 30px;
       }
       tr:nth-of-type(2n) {
-        background: fade(#ffffff, 2%);
+        background: lightgray;
       }
       td,
       th {
@@ -41,17 +39,12 @@
         font-weight: normal;
       }
       td {
-        border-left: 1px solid fade(#000000, 10%);
       }
       th {
-        background: fade(#ffffff, 4%);
-        color: @textTitle
       }
     }
     thead {
       td, th {
-        border-bottom: 1px solid fade(#ffffff, 10);
-        border-right: 1px solid fade(#ffffff, 10);
       }
       td:last-child, th:last-child {
         border-right: none;
@@ -95,8 +88,7 @@
   border-radius: 10px;
   height: 100px;
   position: absolute;
-  background: rgb(97, 95, 92);
+  background: rgb(97, 95, 92) !important;
   top: 0;
   right: 0;
-  margin: 0 2px;
 }

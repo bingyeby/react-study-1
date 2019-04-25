@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ScreenShot from './screenShot'
-import _ from 'lodash'
 
 class Test extends React.Component {
 
@@ -17,33 +16,27 @@ class Test extends React.Component {
 
   render() {
     return (<div>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-      <h1>12</h1>
-
+      {
+        Array(5).fill('').map((n, i) => {
+          return <h1 key={i}>{i}</h1>
+        })
+      }
       <ScreenShot onDone={(data) => {
         this.setState({
           imgSrcList: data,
         })
       }}></ScreenShot>
       {
-        _.map(this.state.imgSrcList, (n, i) => {
+        this.state.imgSrcList && this.state.imgSrcList.map((n, i) => {
           return <img key={i} src={n} width={100} />
         })
       }
 
-
+      {
+        Array(15).fill('').map((n, i) => {
+          return <h1 key={i}>{i}</h1>
+        })
+      }
     </div>)
   }
 }

@@ -7,43 +7,77 @@ import styles from './index.less'
 import 'antd/dist/antd.css';
 
 /*
-* 载入组件: 同步方式
+* 载入组件方式1: 同步方式
 * */
 // import App from './demo-a/app';
 // render(<App />, document.getElementById("root"));
 
-/**
- * 载入组件: 异步载入
- *
+/*
+ * 载入组件方式2: 异步载入
  */
-const Loading = () => {
-  return 'loading'
+const Loading = (info) => {
+  if (info.error) {
+    return <div style={{whiteSpace: 'pre', color: 'red'}}>
+      {info.error.stack}
+    </div>
+  }
+  return 'loading...'
 }
 
-const demoa = loadable({loader: () => import('./demo-a/app'), loading: Loading})
-const demob = loadable({loader: () => import('./demo-b/index'), loading: Loading})
-const democ = loadable({loader: () => import('./demo-c/index'), loading: Loading})
-const screenShot = loadable({loader: () => import('./screenShot/index'), loading: Loading})
-const comment = loadable({
-  loader: () => import(/* webpackChunkName: "comment" */'./demo-comment/comment'),
-  loading: Loading
-})
+let RouterConfig = [
+  {
+    path: '/demo-a',
+    component: loadable({loader: () => import('./demo-a/app'), loading: Loading})
+  },
+  {
+    path: '/demo-b',
+    component: loadable({loader: () => import('./demo-b/index'), loading: Loading})
+  },
+  {
+    path: '/demo-c',
+    component: loadable({loader: () => import('./demo-c/index'), loading: Loading})
+  },
+  {
+    path: '/demo-comment',
+    component: loadable({
+      loader: () => import(/* webpackChunkName: "comment" */'./demo-comment/comment'),
+      loading: Loading
+    })
+  },
+  {
+    path: '/screenShot',
+    name: '截屏',
+    component: loadable({loader: () => import('./screenShot/index'), loading: Loading})
+  },
+  {
+    path: '/chinaMap',
+    name: '省市区地图联动',
+    component: loadable({loader: () => import('./chinaMap/index'), loading: Loading})
+  },
+  {
+    path: '/chinaMapD3',
+    name: '中国地图D3',
+    component: loadable({loader: () => import('./chinaMapD3/index'), loading: Loading})
+  },
+]
 
-render(<div>
+render(<div className={styles.outer}>
   <Router>
-    <div className={styles.linkW}>
-      <Link to={'/demoa'}>demoa</Link>
-      <Link to={'/demob'}>demob</Link>
-      <Link to={'/democ'}>democ</Link>
-      <Link to={'/comment'}>comment</Link>
-      <Link to={'/screenShot'}>screenShot</Link>
+    <div className={styles.nav}>
+      {
+        RouterConfig.map((n, i) => {
+          return <Link key={i} to={n.path}>{n.name || n.path}</Link>
+        })
+      }
     </div>
-    <Switch>
-      <Route path="/comment" component={comment} />
-      <Route path="/demoa" component={demoa} />
-      <Route path="/demob" component={demob} />
-      <Route path="/democ" component={democ} />
-      <Route path="/screenShot" component={screenShot} />
-    </Switch>
+    <div className={styles.content}>
+      <Switch>
+        {
+          RouterConfig.map((n, i) => {
+            return <Route key={i} path={n.path} component={n.component} />
+          })
+        }
+      </Switch>
+    </div>
   </Router>
 </div>, document.getElementById("root"));

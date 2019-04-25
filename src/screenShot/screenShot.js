@@ -84,7 +84,7 @@ class ScreenShot extends React.Component {
   * */
   html2canvasOpt = () => {
 
-    // 0.4.1版本
+    // 0.4.1版本截屏的结果
     // html2canvas0(document.querySelector('body'), {
     //   onrendered: (canvas) => {
     //     let h = document.documentElement.scrollHeight
@@ -100,7 +100,8 @@ class ScreenShot extends React.Component {
     //     ctx.drawImage(canvas, 0, sy, w, dh, 0, 0, w, dh)
     //     let img = canvasTemp.toDataURL()
     //     $(document).scrollTop(sy)
-    //     this.imgInfoList.push(img)  // this.imgInfoList.push(canvas.toDataURL())
+    //     this.imgInfoList.push(img)
+    //     this.imgInfoList.push(canvas.toDataURL())
     //   },
     // })
 
